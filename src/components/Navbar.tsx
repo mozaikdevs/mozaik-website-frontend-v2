@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
                 <a href="#contact" className="hover:text-gray-400 font-[500]">Portofolio</a>
             </div>
             <div>
-                <button className="flex justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded">
+                <button className="flex justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]">
                     Get in Touch
                     <MdKeyboardArrowRight className='text-2xl ml-2' />
                 </button>
