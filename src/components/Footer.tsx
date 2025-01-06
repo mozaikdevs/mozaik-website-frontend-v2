@@ -50,13 +50,13 @@ const Footer: React.FC = () => {
                     <p>3 KG 686 st, Kigali</p>
                 </div>
                 <div className="flex items-center">
-                <div className="w-10 h-10 bg-[#1B4D77] rounded-[8px] flex items-center justify-center mr-3">
-                    <div className='w-5 h-5 relative'>
-                            <Image 
-                                src="/icons/mail.svg" 
-                                alt="Location" 
-                                fill
-                            />
+                    <div className="w-10 h-10 bg-[#1B4D77] rounded-[8px] flex items-center justify-center mr-3">
+                        <div className='w-5 h-5 relative'>
+                                <Image 
+                                    src="/icons/mail.svg" 
+                                    alt="Location" 
+                                    fill
+                                />
                         </div>
                     </div>
                     <p> info@mozaikconcepts.com</p>

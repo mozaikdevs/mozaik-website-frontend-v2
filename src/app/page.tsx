@@ -8,6 +8,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Partners from "@/components/sections/Partners";
 import Magazine from "@/components/sections/Magazine";
 import Testimonial from "@/components/sections/Testimonial";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -32,6 +33,9 @@ export default function Home() {
       </section>
       <section>
         <Testimonial/>
+      </section>
+      <section>
+        <Contact/>
       </section>
     </div>
   );
