@@ -33,9 +33,6 @@ const About: React.FC = () => {
                     <p className='text-[#4C4B4B]'>It is our mission to operate our business with care, honesty and integrity. We leverage all of this knowledge to act as trusted advisers to our clients.</p>
                 </div>
             </section>
-            <section>
-
-            </section>
             <section className="mt-12 mx-16">
                 <div className='flex flex-col justify-start items-center mb-10'>
                     <h2 className="text-md font-bold text-center uppercase text-black redex mb-5">WHY CHOOSE US</h2>
