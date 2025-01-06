@@ -1,4 +1,4 @@
-import AllProjects from '@/components/sections/AllProjects';
+import AllProjects from '@/components/AllProjects';
 import React from 'react';
 
 const ProjectsPage: React.FC = () => {
