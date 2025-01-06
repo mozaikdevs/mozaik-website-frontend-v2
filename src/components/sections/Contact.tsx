@@ -4,7 +4,7 @@ import { FaFacebookF } from 'react-icons/fa';
 
 const Contact: React.FC = () => {
     return (
-        <section className="flex justify-between px-32 py-16">
+        <section className="flex justify-between px-32 py-32">
             {/* First Element */}
             <div className="relative w-2/5 bg-[#143755] rounded-2xl p-10 text-white z-10">
                 <div className='flex justify-start items-center'>
