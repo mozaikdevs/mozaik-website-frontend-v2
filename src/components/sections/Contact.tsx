@@ -92,8 +92,8 @@ const Contact: React.FC = () => {
                         </div>
                         <div className='w-1/2 flex flex-col'>
                             <label className='text-[#535353] text-sm mb-2'>Topic</label>
-                            <select className="w-full bg-[#F9F9F9] text-sm h-[48px] text-[#AFAFAF] px-4 border-none rounded">
-                                <option value="" disabled selected>Select topic</option>
+                            <select defaultValue="" className="w-full bg-[#F9F9F9] text-sm h-[48px] text-[#AFAFAF] px-4 border-none rounded">
+                                <option value="" disabled>Select topic</option>
                                 <option value="general">General Inquiry</option>
                                 <option value="support">Support</option>
                                 <option value="feedback">Feedback</option>
