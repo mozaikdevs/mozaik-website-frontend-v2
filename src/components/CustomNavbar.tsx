@@ -6,7 +6,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 const CustomNavbar: React.FC = () => {
     return (
         <nav className="flex items-center justify-between p-4 bg-[#161515] outfit px-16">
-            <Link href="/" className="logo">
+            <Link href="/portofolio" className="logo">
                 <Image
                     src="/images/dark-logo.png"
                     alt="Mozaik concepts Logo"
