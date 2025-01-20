@@ -4,6 +4,7 @@ import React from 'react';
 
 const ProjectDetails: React.FC = () => {
     return (
+        
         <div className='bg-white min-h-screen py-8 px-20'>
             <section className='relative'>
                 <div className="flex rounded-xl">

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Readex+Pro:wght@160..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Outfit:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Readex+Pro:wght@160..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +11,14 @@ body {
 
 .redex{
   font-family: "Readex Pro", serif;
+}
+
+.crisis{
+  font-family: "Climate Crisis", sans-serif;
+}
+
+.outfit{
+  font-family: "Outfit", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
