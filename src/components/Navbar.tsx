@@ -15,10 +15,10 @@ const Navbar: React.FC = () => {
                 />
             </Link>
             <div className="flex space-x-12 text-black">
-                <a href="#home" className="hover:text-gray-400 font-[500]">Services</a>
-                <a href="#about" className="hover:text-gray-400 font-[500]">About</a>
-                <a href="#services" className="hover:text-gray-400 font-[500]">Projects</a>
-                <a href="#contact" className="hover:text-gray-400 font-[500]">Portofolio</a>
+                <Link href="/services" className="hover:text-gray-400 font-[500]">Services</Link>
+                <Link href="/about" className="hover:text-gray-400 font-[500]">About</Link>
+                <Link href="/projects" className="hover:text-gray-400 font-[500]">Projects</Link>
+                <Link href="#" className="hover:text-gray-400 font-[500]">Portofolio</Link>
             </div>
             <div>
                 <button className="flex justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]">
