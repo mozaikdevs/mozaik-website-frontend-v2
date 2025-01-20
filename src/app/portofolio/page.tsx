@@ -1,10 +1,16 @@
+import HomeSection from '@/components/portofolio-sections/HomeSection';
+import ProjectSection from '@/components/portofolio-sections/ProjectSection';
 import React from 'react';
 
 const Portfolio: React.FC = () => {
     return (
         <div>
-            <h1>Portfoliooooo``</h1>
-            <p>Welcome to the portfolio page!</p>
+            <section>
+                <HomeSection/>
+            </section>
+            <section>
+                <ProjectSection/>
+            </section>
         </div>
     );
 };
