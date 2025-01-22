@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
                 <Link href="/services" className="hover:text-gray-400 font-[500]">Services</Link>
                 <Link href="/about" className="hover:text-gray-400 font-[500]">About</Link>
                 <Link href="/projects" className="hover:text-gray-400 font-[500]">Projects</Link>
-                <Link href="#" className="hover:text-gray-400 font-[500]">Portofolio</Link>
+                <Link href="/portofolio" className="hover:text-gray-400 font-[500]">Portofolio</Link>
             </div>
             <div>
                 <button className="flex justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]">
