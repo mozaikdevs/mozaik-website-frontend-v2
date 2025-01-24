@@ -6,13 +6,13 @@ import { FaFacebookF } from 'react-icons/fa6';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="flex flex-col py-10 px-16 bg-[#143755]">
-            <div className="flex justify-between mb-5">
+        <footer className="flex flex-col py-10 px-5 md:px-16 bg-[#143755]">
+            <div className="flex flex-col md:flex-row justify-between mb-5">
                 <div>
                     <p className="text-xs font-[800] mb-3">GET A PROJECT?</p>
-                    <p className="text-4xl font-semibold uppercase">let’s connect</p>
+                    <p className="w-1/2 text-4xl font-semibold uppercase">let’s connect</p>
                 </div>
-                <div className='text-white'>
+                <div className='text-white mb-5 md:my-0 my-5'>
                     <h1 className='text-[15px] font-semibold mb-3'>LINKS</h1>
                     <div className='flex flex-row'>
                         <div className='mr-10'>
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full bg-[#183E5E] rounded-lg p-5 flex justify-between items-center mb-5 border-[2px] border-[#1B4D77] my-5">
+            <div className="w-full bg-[#183E5E] rounded-lg p-5 flex flex-col md:flex-row justify-between md:items-center mb-5 border-[2px] border-[#1B4D77] space-y-4 md:space-y-0 md:my-5">
                 <div className="flex items-center">
                     <div className="w-10 h-10 bg-[#1B4D77] rounded-[8px] flex items-center justify-center mr-3">
                         <div className='w-5 h-5 relative'>
@@ -74,9 +74,9 @@ const Footer: React.FC = () => {
                     <p>+250 791 903 218</p>
                 </div>
             </div>
-            <div className="flex justify-between items-center mt-10">
+            <div className="flex md:flex-row flex-col-reverse justify-between items-center mt-10">
                 <p className='text-sm font-bold'>Mozaik Concepts © {new Date().getFullYear()}  All rights reserved</p>
-                <div className='flex'>
+                <div className='flex mb-5 md:mb-0'>
                     <a href="https://www.facebook.com" target='_blank' className="w-9 h-9 bg-white rounded-full flex items-center justify-center mr-3" rel="noopener noreferrer">
                         <FaFacebookF className='text-[#1B4D77] text-xl' />
                     </a>
