@@ -2,6 +2,8 @@
 
 import { AppDispatch } from '@/redux/store';
 import { getAllProjects } from '@/services/client';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,11 +11,19 @@ import { useDispatch, useSelector } from 'react-redux';
 const Projects: React.FC = () => {
     
     const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
     const allProjects = useSelector((state: any) => state.projects.projects);
 
     useEffect(() => {
         dispatch(getAllProjects());
     },[dispatch]);
+
+    const handleProjectClick = (projectId: string) => {
+        const params = new URLSearchParams({
+            id: projectId
+        });
+        router.push(`/project-details?${params.toString()}`);
+    };
 
     return (
         <section className="">
@@ -25,8 +35,12 @@ const Projects: React.FC = () => {
                 </div>
                 <p className="text-3xl text-black text-center mb-8 md:px-[20%] font-[600] uppercase redex">Explore Our Projects: Inspiring Spaces, Exceptional Experiences.</p>
                 <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-7 gap-8 mt-24">
-                    <div className="flex items-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl" style={{ backgroundImage: `url(${allProjects[0]?.thumbnailAfter})` }}>
-                        <div className="w-1/2 h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
+                    <div 
+                        className="flex items-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl cursor-pointer"
+                        style={{ backgroundImage: `url(${allProjects[0]?.thumbnailAfter})` }}
+                        onClick={() => handleProjectClick(allProjects[0]?._id)}
+                    >
+                        <div className="w-1/2 h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl cursor-pointer">
                             <div className="flex justify-between text-white">
                                 <span className='uppercase font-medium text-sm text-white'>{allProjects[0]?.name}</span>
                                 <span className='redex text-sm font-[300]'>{allProjects[0]?.areaSize} {allProjects[0]?.areaUnit}</span>
@@ -36,8 +50,12 @@ const Projects: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-end justify-end md:col-span-3 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl" style={{ backgroundImage: `url(${allProjects[1]?.thumbnailAfter})` }}>
-                        <div className="md:w-[80%] h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
+                    <div 
+                        className="flex items-end justify-end md:col-span-3 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl cursor-pointer" 
+                        style={{ backgroundImage: `url(${allProjects[1]?.thumbnailAfter})` }}
+                        onClick={() => handleProjectClick(allProjects[1]?._id)}    
+                    >
+                        <div className="md:w-[80%] h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl cursor-pointer">
                             <div className="md:w-full flex justify-between text-white">
                                 <span className='md:w-[60%] uppercase font-medium text-sm text-white'>{allProjects[1]?.name}</span>
                                 <span className='md:w-[22%] redex text-sm font-[300]'> {allProjects[1]?.areaSize} {allProjects[1]?.areaUnit}</span>
@@ -47,7 +65,11 @@ const Projects: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-end md:col-span-3 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl" style={{ backgroundImage: `url(${allProjects[2]?.thumbnailAfter})` }}>
+                    <div 
+                        className="flex items-end md:col-span-3 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl" 
+                        style={{ backgroundImage: `url(${allProjects[2]?.thumbnailAfter})` }}
+                        onClick={() => handleProjectClick(allProjects[2]?._id)}    
+                    >
                         <div className="w-3/4 h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
                             <div className="flex justify-between text-white">
                                 <span className='uppercase font-medium text-sm text-white'>{allProjects[2]?.name}</span>
@@ -58,7 +80,11 @@ const Projects: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex items-end justify-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl" style={{ backgroundImage: `url(${allProjects[3]?.thumbnailAfter})` }}>
+                    <div 
+                        className="flex items-end justify-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl" 
+                        style={{ backgroundImage: `url(${allProjects[3]?.thumbnailAfter})` }}
+                        onClick={() => handleProjectClick(allProjects[3]?._id)}    
+                    >
                         <div className="w-2/3 h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
                             <div className="flex justify-between text-white">
                                 <span className='uppercase font-medium text-sm text-white'>{allProjects[3]?.name}</span>
@@ -70,10 +96,15 @@ const Projects: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <button className="flex items-center justify-between mx-auto mt-20 bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]">
-                    View all projects
-                    <MdKeyboardArrowRight className='text-2xl ml-2' />
-                </button>
+                <div className='w-full flex justify-center'>
+                    <Link 
+                        href='/projects' 
+                        className="flex items-center justify-between mt-8 bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]"
+                    >
+                        View all projects
+                        <MdKeyboardArrowRight className='text-2xl ml-2' />
+                    </Link>
+                </div>
                 <div>
             </div>
             </div>

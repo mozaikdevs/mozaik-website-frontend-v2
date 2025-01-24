@@ -1,6 +1,7 @@
 import { Project } from '@/interfaces/project';
 import { truncateDetails } from '@/utils';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -9,10 +10,21 @@ interface AllProjectsProps {
 }
 
 const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
+    const router = useRouter();
+
+    const handleProjectClick = (projectId: string) => {
+        const params = new URLSearchParams({
+            id: projectId
+        });
+        router.push(`/project-details?${params.toString()}`);
+    };
     return (
         <div className="w-4/5 mx-auto py-20">
             {projects.map((project) => (
-                <div key={project._id} className="w-full flex space-between items-center mb-20">
+                <div 
+                    key={project._id} 
+                    className="w-full flex space-between items-center mb-20 cursor-pointer"
+                >
                     <div className="w-[45%] h-[300px] relative rounded-xl">
                         <Image 
                             src='https://res.cloudinary.com/mozaikconcepts/image/upload/v1737702224/thg4isdant9qbnyhixbi.png'
@@ -31,8 +43,11 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                             <p className='text-black text-sm font-[300]'> <span className='text-[#9E9E9E] mr-2'>Client</span>{project.clientId.name}</p>
                         </div>
                         <p className='text-[#474646] text-sm'>{truncateDetails(project.description,400)}</p>
-                        <button className="flex items-center justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[500] py-3 px-5 rounded-[8px] mt-5">
-                            View projects
+                        <button 
+                            className="flex items-center justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[500] py-3 px-5 rounded-[8px] mt-5"
+                            onClick={() => handleProjectClick(project._id)}
+                        >
+                            View project
                             <MdKeyboardArrowRight className='text-2xl ml-2' />
                         </button>
                     </div>

@@ -6,12 +6,21 @@ import { AppDispatch } from '@/redux/store';
 import { getAllProjects } from '@/services/client';
 import { Project } from '@/interfaces/project';
 import { formatDate } from '@/utils';
+import { useRouter } from 'next/navigation';
 
 
 const ProjectSection: React.FC = () => {
     
     const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
     const { projects } = useSelector((state: any) => state.projects);
+
+    const handleProjectClick = (projectId: string) => {
+        const params = new URLSearchParams({
+            id: projectId
+        });
+        router.push(`/portofolio/project-details?${params.toString()}`);
+    };
 
     useEffect(() => {
         dispatch(getAllProjects());
@@ -22,7 +31,11 @@ const ProjectSection: React.FC = () => {
             <h2 className='text-sm text-center redex uppercase mb-5 font-semibold'>Project</h2>
             <h3 className='w-1/4 mx-auto text-2xl text-center uppercase font-[800] mb-20'>We design and carry out your projects</h3>
             {projects.map((project: Project) => (
-                <div key={project._id} className='flex flex-col mx-auto w-1/2 mb-20'>
+                <div 
+                    key={project._id} 
+                    className='flex flex-col mx-auto w-1/2 mb-20 cursor-pointer'
+                    onClick={() => handleProjectClick(project._id)}
+                >
                     <div className='relative h-[400px] w-full rounded-lg'>
                         <Image
                             src={project.thumbnailAfter}
