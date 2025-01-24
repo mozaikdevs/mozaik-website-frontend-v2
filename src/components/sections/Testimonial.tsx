@@ -1,44 +1,28 @@
 'use client'
+import type { Testimonial } from '@/interfaces/testimonial';
+import { AppDispatch } from '@/redux/store';
+import { getAllTestimonials } from '@/services/client';
 import Image from 'next/image'
 import React, { useEffect, useState, useRef } from 'react'
 import { FaQuoteLeft } from 'react-icons/fa';
 import { IoIosArrowRoundForward } from 'react-icons/io';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Testimonial: React.FC = () => {
+
     // State and refs
     const [currentSlide, setCurrentSlide] = useState(0)
     const autoScrollInterval = 5000
     const carouselRef = useRef<HTMLDivElement>(null)
-  const testimonials = [
-    {
-      id: 1,
-      logo: 'logo11.png',
-      firstName: 'Eric',
-      lastName: 'RUGAMBA',
-      position: 'M&E Sales manager',
-      message: 'I want to share my positive experience with mozaik concepts, a fantastic interior design company, i highly recommend them for their professionalism and creativity .i have worked with mozaik concepts on several projects. an im impressed by their commitment to excellence, they are professional from start to finish, delivering outstanding results that go beyond expectations',
-    },
-    {
-      id: 2,
-      logo: 'logo12.png',
-      firstName: 'Joanna',
-      lastName: 'Nicholas',
-      position: 'Managing director',
-      message: 'We had the pleasure of working with Mozaik Concepts Rwanda on the design,planning, and delivery of our office space, and we are impressed with the results. Their team demonstrated creativity, professionalism, and attention to detail throughout the entire process .They listened carefully to our needs and translated them into a functional and aesthetically pleasing workspace that perfectly aligns with our',
-    },
-    {
-      id: 3,
-      logo: 'logo13.png',
-      firstName: 'Dennis',
-      lastName: 'NDEMEZO',
-      position: 'Managing director',
-      message: 'I m pleased to issue this certificate of good service to mozaik concepts ltd which has provided excellent design services ranging from space planning anddesign conceptualization to implementation and furniture procurement and installation the team at mozaik concepts dedicated, communicative,and hardworking.we have been thoroughly satisfied with the quality and effectiveness of services provided',
-    },
-  ];
+
+    const dispatch = useDispatch<AppDispatch>();
+    const { testimonials } = useSelector((state: any) => state.testimonials);
+    useEffect(() => {
+        dispatch(getAllTestimonials());
+    },[dispatch]);
 
   // Create array with duplicated items for infinite loop
   const allSlides = [...testimonials, ...testimonials, ...testimonials]
-console.log(allSlides);
 
   // Automatically move to the next slide after a set interval
   useEffect(() => {
@@ -130,7 +114,7 @@ console.log(allSlides);
                 transform: `translateX(-${(currentSlide) * 33.33}%)`,
                 }}
             >
-                {allSlides.map((testimonial, index) => (
+                {allSlides.map((testimonial: Testimonial, index: number) => (
                     <div 
                     key={index} 
                     className='min-w-[33.33%] p-5 bg-white mx-5 rounded-xl' // Fixed width and spacing
@@ -138,27 +122,27 @@ console.log(allSlides);
                                 {/* Header */}
                     <div className="flex items-center mb-4">
                     <div className="w-12 h-12 mr-4 bg-[#F2F2F2] rounded-xl flex items-center justify-center">
-                        <Image
-                        src={`/images/${testimonial.logo}`}
-                        alt={`${testimonial.firstName} logo`}
+                      <Image
+                        src={testimonial.clientId.logo}
+                        alt={`${testimonial.name} logo`}
                         width={48}
                         height={48}
                         className="rounded-full"
-                        />
+                      />
                     </div>
                     <div>
                         <div className='flex text-black text-sm'>
-                        <h2 className="mr-1">{testimonial.firstName}</h2>
-                        <h2 className="font-semibold uppercase">{testimonial.lastName}</h2>
+                        <h2 className="mr-1">{testimonial.name.split(' ')[0]}</h2>
+                        <h2 className="font-semibold uppercase">{testimonial.name.split(' ')[1]}</h2>
                         </div>
-                        <p className="text-gray-600 text-sm">{testimonial.position}</p>
-                    </div>
+                        <p className="text-gray-600 text-sm">{testimonial.employeePosition}</p>
+                        </div>
                     </div>
 
                     {/* Body */}
                     <div className="flex mb-4 items-start">
                     <FaQuoteLeft className='text-4xl text-[#2D2A2A] mr-4' />
-                    <p className="text-gray-800 text-sm">{testimonial.message}</p>
+                    <p className="text-gray-800 text-sm">{testimonial.content}</p>
                     </div>
 
                     {/* Read More Button */}
@@ -174,13 +158,13 @@ console.log(allSlides);
 
             {/* Slider indicators */}
             <div className="absolute z-30 flex -translate-x-1/2 bottom-0 left-1/2 space-x-3 rtl:space-x-reverse mt-20">
-            {testimonials.map((_, index) => (
+            {testimonials.map((testimonial : Testimonial, index: number) => (
                 <button
-                key={index}
-                type="button"
-                className={`h-[9px] ${index === currentSlide ? 'bg-black w-[94px]' : 'bg-[#EBEBEB] w-[31px]'}`}
-                aria-label={`Slide ${index + 1}`}
-                onClick={() => setCurrentSlide(index)}
+                  key={index}
+                  type="button"
+                  className={`h-[9px] ${index === currentSlide ? 'bg-black w-[94px]' : 'bg-[#EBEBEB] w-[31px]'}`}
+                  aria-label={`Slide ${index + 1}`}
+                  onClick={() => setCurrentSlide(index)}
                 ></button>
             ))}
             </div>

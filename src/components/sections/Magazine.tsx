@@ -1,28 +1,32 @@
+'use client'
+
+import { AppDispatch } from '@/redux/store';
+import { getAllBlogs } from '@/services/client';
 import Image from 'next/image';
-import React from 'react';
+import Link from 'next/link';
+import React, { useEffect } from 'react';
 import { MdArrowOutward, MdKeyboardArrowRight } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Blog } from '@/interfaces/blog';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { formatDate } from '@/utils';
 
 const Magazine: React.FC = () => {
-    const blogs = [
-        {   
-            url: '/images/7.png',
-            date:'September 26,2024',
-            title: 'Transforming Spaces: Top Trends in Modern Interior Design',
-        },
-        {
-            url: '/images/7.png',
-            date:'September 26,2024',
-            title: 'Transforming Spaces: Top Trends in Modern Interior Design',
-        },
-        {
-            url: '/images/7.png',
-            date:'September 26,2024',
-            title: 'Transforming Spaces: Top Trends in Modern Interior Design',
-        }
-    ];
+    const dispatch = useDispatch<AppDispatch>();
+    const { blogs } = useSelector((state: any) => state.blogs);
+
+    useEffect(() => {
+        dispatch(getAllBlogs());
+    }, [dispatch]);
 
     return (
-        <section className=" py-20 px-16 bg-[#143755]">
+        <section className="py-20 px-16 bg-[#143755]">
             <div className="flex justify-between items-end">
                 <div>
                     <div className='flex justify-start items-center mb-5'>
@@ -32,38 +36,53 @@ const Magazine: React.FC = () => {
                     </div>
                     <p className="text-2xl text-white uppercase font-[700]">Interior Design Insights</p>
                 </div>
-                <div className='w-1/2'>
+                <div className='w-1/3'>
                     <p className='text-[#D0D0D0]'>We are passionate about delivering cutting-edge digital innovation, achieving remarkable results that we are proud of."</p>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-20 mt-20 mb-10 px-10">
-                {blogs.map((card, index) => (
-                    <div key={index} className="rounded-lg">
-                        <div className="relative w-[90%] h-80 bg-gray-300 rounded-lg mb-4">
-                            <Image 
-                                src={card.url} 
-                                alt="Blog Image" 
-                                layout="fill" 
-                                objectFit="cover" 
-                                className='rounded-lg'
-                            />
+
+            <Swiper
+                modules={[Autoplay]}
+                spaceBetween={30}
+                slidesPerView={3}
+                autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                }}
+                loop={true}
+                className="mt-20 mb-10"
+            >
+                {blogs.map((blog: Blog, index: number) => (
+                    <SwiperSlide key={blog._id}>
+                        <div className="px-4">
+                            <div className="relative w-[90%] h-80 bg-gray-300 rounded-lg mb-4">
+                                <Image 
+                                    src={blog.thumbnail}
+                                    alt="Blog Image" 
+                                    layout="fill" 
+                                    objectFit="cover" 
+                                    className='rounded-lg'
+                                />
+                            </div>
+                            <div className='flex text-sm text-[#B8B8B8]'>
+                                <p className="text-gray-500 mr-2">Latest Blogs</p>
+                                <p className="text-gray-500">
+                                    {formatDate(blog.dateOfPublish)}
+                                </p>
+                            </div>
+                            <h3 className="text-xl font-semibold mb-4 uppercase text-white">{blog.title}</h3>
+                            <Link 
+                                href={blog.linkToBlog}
+                                target="_blank"
+                                className="text-[#E5E5E5] text-sm flex items-center my-5"
+                            >
+                                Read more
+                                <MdArrowOutward className='text-2xl ml-2'/>
+                            </Link>
                         </div>
-                        <div className='flex text-sm text-[#B8B8B8]'>
-                            <p className="text-gray-500 mr-2">Latest Blogs</p>
-                            <p className="text-gray-500">{card.date}</p>
-                        </div>
-                        <h2 className="text-white mb-2 uppercase text-md font-semibold my-5">{card.title}</h2>
-                        <button className="text-[#E5E5E5] text-sm flex items-center my-5">
-                            Read More 
-                            <MdArrowOutward className='text-xl ml-2' />
-                        </button>
-                    </div>
+                    </SwiperSlide>
                 ))}
-            </div>
-            <button className="flex items-center justify-between mx-auto bg-[#E09F1F] hover:bg-blue-700 text-white font-[500] py-3 px-8 rounded-[8px]">
-                view all articles
-                <MdKeyboardArrowRight className='text-2xl ml-2' />
-            </button>
+            </Swiper>
         </section>
     );
 };
