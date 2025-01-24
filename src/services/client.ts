@@ -1,14 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_BASE_URL = 'http://localhost:3003/api/v1';
-
-// const apiClient = axios.create({
-//     baseURL: API_BASE_URL,
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-// });
+const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3003/api/v1';
 
 export const getAllProjects = createAsyncThunk(
     'projects/getAllProjects',
@@ -59,3 +52,25 @@ export const getAllBlogs = createAsyncThunk(
     }
   }
 );
+
+export const submitContactForm = createAsyncThunk(
+  'contact/submitForm',
+  async (payload: ContactFormData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/contact-us`, {
+        ...payload,
+      });
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || 'Failed to submit form');
+    }
+  }
+);
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  topic: string;
+  message: string;
+}

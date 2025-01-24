@@ -49,7 +49,7 @@ const Testimonial: React.FC = () => {
     },[dispatch]);
 
   // Create array with duplicated items for infinite loop
-  const allSlides = [...testimonials, ...testimonials, ...testimonials, ...testimonials]
+  const allSlides = [...testimonials, ...testimonials, ...testimonials]
 
   // Automatically move to the next slide after a set interval
   useEffect(() => {
