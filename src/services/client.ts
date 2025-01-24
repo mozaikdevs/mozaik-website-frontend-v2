@@ -35,3 +35,15 @@ export const getAllClients = createAsyncThunk(
       }
     }
 );
+
+export const getAllTestimonials = createAsyncThunk(
+  'testimonials/getAlltestimonials',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/testimonials`);
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || 'Failed to fetch testimonials');
+    }
+  }
+);
