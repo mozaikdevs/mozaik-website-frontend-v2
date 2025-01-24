@@ -47,3 +47,15 @@ export const getAllTestimonials = createAsyncThunk(
     }
   }
 );
+
+export const getAllBlogs = createAsyncThunk(
+  'blogs/getAllBlogs',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/blogs`);
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || 'Failed to fetch blogs');
+    }
+  }
+);
