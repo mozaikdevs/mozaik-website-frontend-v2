@@ -26,36 +26,47 @@ const Magazine: React.FC = () => {
     }, [dispatch]);
 
     return (
-        <section className="py-20 px-16 bg-[#143755]">
-            <div className="flex justify-between items-end">
+        <section className="py-20 md:px-16 px-5 bg-[#143755]">
+            <div className="flex md:flex-row flex-col md:justify-between justify-center items-start">
                 <div>
-                    <div className='flex justify-start items-center mb-5'>
+                    <div className='flex md:justify-start justify-center items-center mb-5'>
                         <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
                         <h2 className="text-md font-bold text-center uppercase text-white">magazine</h2>
                         <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                     </div>
-                    <p className="text-2xl text-white uppercase font-[700]">Interior Design Insights</p>
+                    <p className="md:text-2xl text-xl text-white uppercase font-[700] md:text-start text-center">Interior Design Insights</p>
                 </div>
-                <div className='w-1/3'>
-                    <p className='text-[#D0D0D0]'>We are passionate about delivering cutting-edge digital innovation, achieving remarkable results that we are proud of."</p>
+                <div className='md:w-1/3 w-full'>
+                    <p className='text-[#D0D0D0] md:text-start text-center'>Read about the latest news, trends and updates on commercial interior design."</p>
                 </div>
             </div>
 
             <Swiper
                 modules={[Autoplay]}
                 spaceBetween={30}
-                slidesPerView={3}
+                // slidesPerView={3}
                 autoplay={{
                     delay: 4000,
                     disableOnInteraction: false,
                 }}
                 loop={true}
                 className="mt-20 mb-10"
+                breakpoints={{
+                    640: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                }}
             >
                 {blogs.map((blog: Blog, index: number) => (
                     <SwiperSlide key={blog._id}>
                         <div className="px-4">
-                            <div className="relative w-[90%] h-80 bg-gray-300 rounded-lg mb-4">
+                            <div className="relative md:w-[90%] w-full md:h-80 h-64 bg-gray-300 rounded-lg mb-4">
                                 <Image 
                                     src={blog.thumbnail}
                                     alt="Blog Image" 
@@ -70,7 +81,7 @@ const Magazine: React.FC = () => {
                                     {formatDate(blog.dateOfPublish)}
                                 </p>
                             </div>
-                            <h3 className="text-xl font-semibold mb-4 uppercase text-white">{blog.title}</h3>
+                            <h3 className="md:text-xl text-lg font-semibold mb-4 uppercase text-white">{blog.title}</h3>
                             <Link 
                                 href={blog.linkToBlog}
                                 target="_blank"

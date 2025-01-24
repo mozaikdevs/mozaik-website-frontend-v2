@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className="z-50 w-full flex items-center justify-between p-4 bg-white px-10 md:px-16">
+        <nav className="z-50 w-full flex items-center justify-between p-4 bg-white px-5 md:px-16">
             <Link href="/" className="logo relative w-[130px] h-[35px] md:w-[150px] md:h-[40px]">
                 <Image
                     src="/images/logo.png"
