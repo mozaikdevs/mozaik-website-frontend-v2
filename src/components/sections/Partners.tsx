@@ -1,7 +1,31 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from '@/redux/store';
+import { getAllClients } from '@/services/client';
 import Image from 'next/image';
-import React from 'react';
+
+interface Client {
+    _id: string;
+    name: string;
+    email: string;
+    phone: string;
+    logo: string;
+    streetAddress: string;
+    city: string;
+    companySector: string;
+    googleDriveDataLink: string;
+    createdAt: string;
+    updatedAt: string;
+}
 
 const Partners: React.FC = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const allClients = useSelector((state: any) => state.clients.clients);
+
+    useEffect(() => {
+        dispatch(getAllClients());
+    }, [dispatch]);
+
     return (
         <section className="flex flex-col space-y-8 bg-[#FAFAFA] py-20 px-16">
             <div className="flex justify-between items-end">
@@ -18,22 +42,21 @@ const Partners: React.FC = () => {
                     <p className='text-[#4C4B4B]'>We are passionate about delivering cutting-edge digital innovation, achieving remarkable results that we are proud of."</p>
                 </div>
             </div>
-            <div className="grid grid-cols-5 gap-0 px-20 py-10">
-                {Array.from({ length: 10 }).map((_, index) => (
+            <div className={`grid ${allClients.length <= 10 ? allClients.length % 2 === 0 ? `grid-cols-${allClients.length/2}` : `grid-cols-${(allClients.length + 1)/2}` : 'grid-cols-5'} gap-0 px-20 py-10 mx-auto`}>
+                {allClients.map((client: Client, index: number) => (
                     <div
-                        key={index}
+                        key={client._id}
                         className={`w-[250px] h-[105px] flex items-center justify-center ${
-                            (index % 2 !== 0)
-                            ? 'bg-white rounded-lg'
-                            : ''
+                            (index + 1) % 2 !== 0 ? 'bg-white rounded-lg' : ''
                         }`}
                     >
                         <div className="relative w-[110px] h-[110px]">
                             <Image
-                            src={`/images/logo${index + 1}.png`}
-                            alt={`Partner ${index + 1}`}
-                            layout="fill"
-                            objectFit="contain"
+                                src={client.logo}
+                                alt={client.name}
+                                layout="fill"
+                                objectFit="contain"
+                                priority
                             />
                         </div>
                     </div>

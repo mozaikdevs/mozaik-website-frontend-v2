@@ -21,3 +21,17 @@ export const getAllProjects = createAsyncThunk(
       }
     }
 );
+
+
+
+export const getAllClients = createAsyncThunk(
+    'clients/getAllClients',
+    async (_, { rejectWithValue }) => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/clients`);
+        return response.data;
+      } catch (error: any) {
+        return rejectWithValue(error.response?.data || 'Failed to fetch clients');
+      }
+    }
+);
