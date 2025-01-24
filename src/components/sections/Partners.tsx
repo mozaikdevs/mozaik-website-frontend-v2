@@ -3,20 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import { getAllClients } from '@/services/client';
 import Image from 'next/image';
-
-interface Client {
-    _id: string;
-    name: string;
-    email: string;
-    phone: string;
-    logo: string;
-    streetAddress: string;
-    city: string;
-    companySector: string;
-    googleDriveDataLink: string;
-    createdAt: string;
-    updatedAt: string;
-}
+import { Client } from '@/interfaces/client';
 
 const Partners: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();

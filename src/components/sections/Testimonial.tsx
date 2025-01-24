@@ -1,4 +1,5 @@
 'use client'
+import type { Testimonial } from '@/interfaces/testimonial';
 import { AppDispatch } from '@/redux/store';
 import { getAllTestimonials } from '@/services/client';
 import Image from 'next/image'
@@ -8,34 +9,6 @@ import { IoIosArrowRoundForward } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Testimonial: React.FC = () => {
-
-    //interfaces
-
-    interface Client {
-      _id: string;
-      name: string;
-      email: string;
-      phone: string;
-      logo: string;
-      streetAddress: string;
-      city: string;
-      companySector: string;
-      googleDriveDataLink: string;
-      createdAt: string;
-      updatedAt: string;
-    }
-    
-    interface Testimonial {
-      _id: string;
-      clientId: Client;
-      name: string;
-      employeePosition: string;
-      content: string;
-      attachment: string;
-      priority: number;
-      createdAt: string;
-      updatedAt: string;
-    }
 
     // State and refs
     const [currentSlide, setCurrentSlide] = useState(0)

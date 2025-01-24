@@ -1,52 +1,14 @@
+import { Project } from '@/interfaces/project';
+import { truncateDetails } from '@/utils';
 import Image from 'next/image';
 import React from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
-
-interface Project {
-    _id: string;
-    name: string;
-    clientId: {
-        _id: string;
-        name: string;
-        email: string;
-        phone: string;
-        logo: string;
-        streetAddress: string;
-        city: string;
-        companySector: string;
-        googleDriveDataLink: string;
-        createdAt: string;
-        updatedAt: string;
-        __v: number;
-    };
-    type: string;
-    description: string;
-    streetAddress: string;
-    city: string;
-    areaSize: number;
-    areaUnit: string;
-    images: string[];
-    thumbnailBefore: string;
-    thumbnailAfter: string;
-    googleDriveDataLink: string;
-    priority: number;
-    createdAt: string;
-    updatedAt: string;
-    __v: number;
-}
 
 interface AllProjectsProps {
     projects: Project[];
 }
 
 const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
-
-    const truncateDetails = (details: string, charLimit: number) => {
-        if (details.length > charLimit) {
-            return details.slice(0, charLimit) + '...';
-        }
-        return details;
-    };
     return (
         <div className="w-4/5 mx-auto py-20">
             {projects.map((project) => (

@@ -9,21 +9,13 @@ import { MdArrowOutward, MdKeyboardArrowRight } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Blog } from '@/interfaces/blog';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-interface Blog {
-    _id: string;
-    title: string;
-    thumbnail: string;
-    dateOfPublish: string;
-    linkToBlog: string;
-    createdAt: string;
-    updatedAt: string;
-}
+import { formatDate } from '@/utils';
 
 const Magazine: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -32,14 +24,6 @@ const Magazine: React.FC = () => {
     useEffect(() => {
         dispatch(getAllBlogs());
     }, [dispatch]);
-
-    const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric'
-        });
-    };
 
     return (
         <section className="py-20 px-16 bg-[#143755]">
