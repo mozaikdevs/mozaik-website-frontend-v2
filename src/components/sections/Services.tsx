@@ -2,15 +2,15 @@ import React from 'react';
 
 const Services: React.FC = () => {
     return (
-        <section className="py-44">
+        <section className="md:py-44 py-32">
             <div className="container mx-auto px-4">
                 <div className='flex justify-center items-center mb-10'>
                     <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
                     <h2 className="text-md font-bold text-center uppercase text-black">Our Services</h2>
                     <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                 </div>
-                <p className="text-3xl text-black text-center mb-8 md:px-[20%] font-[300] uppercase">We provide  <span className='font-[700]'>comprehensive interior design</span>  services, to transform spaces with <span className='font-[700]'>style and innovation.</span> .</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
+                <p className="md:text-3xl text-xl text-black text-center mb-8 md:px-[20%] font-[300] uppercase">We provide  <span className='font-[700]'>comprehensive interior design</span>  services, to transform spaces with <span className='font-[700]'>style and innovation.</span> .</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:mt-24 mt-12">
                     <div className="bg-[#F9F9F9] p-6 rounded-lg">
                         <h3 className="text-md font-bold mb-2 uppercase text-black">Design Development 
                         and  Space Planning</h3>

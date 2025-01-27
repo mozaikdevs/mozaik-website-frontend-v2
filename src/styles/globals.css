@@ -21,6 +21,25 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 2rem;
+}
+
+.swiper-pagination-bullet {
+  height: 9px !important;
+  width: 31px !important;
+  border-radius: 0 !important;
+  background: #EBEBEB !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  width: 94px !important;
+  background: black !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

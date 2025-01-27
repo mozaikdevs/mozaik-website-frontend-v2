@@ -43,21 +43,21 @@ const Contact: React.FC = () => {
         }));
     };
     return (
-        <section className="flex justify-between px-32 py-32">
+        <section className="flex md:flex-row flex-col-reverse justify-between md:px-32 md:py-32 px-5 py-10">
             <ToastContainer />
             {/* First Element */}
-            <div className="relative w-2/5 bg-[#143755] rounded-2xl p-10 text-white z-10">
+            <div className="relative md:w-2/5 w-full md:mt-0 mt-16 bg-[#143755] rounded-2xl p-10 text-white z-10">
                 <div className='flex justify-start items-center'>
                     <div className='h-4 w-2 bg-[#E09F1F] mr-2'></div>
                     <h2 className="text-sm font-bold text-center uppercase text-[#E09F1F]">Reach out to us</h2>
                     <div className='h-4 w-2 bg-[#E09F1F] ml-2'></div>
                 </div>
-                <p className="w-1/2 text-2xl mb-2 capitalize font-bold my-5">We'd love to hear from you!</p>
-                <p className="w-2/3 text-sm mb-8">Feel free to reach out to us with any questions or concerns.</p>
+                <p className="md:w-1/2 w-3/4 md:text-2xl text-xl mb-2 capitalize font-bold my-5">We'd love to hear from you!</p>
+                <p className="md:w-2/3 w-full text-sm mb-8">Feel free to reach out to us with any questions or concerns.</p>
                 <div className="space-y-8">
                     <div className="flex items-center">
-                        <div className="w-16 h-12 bg-[#183E5E] rounded-[8px] flex items-center justify-center mr-5">
-                            <div className='w-6 h-6 relative'>
+                        <div className="w-14 h-11 bg-[#183E5E] rounded-[8px] flex items-center justify-center mr-5">
+                            <div className='w-5 h-5 relative'>
                                 <Image 
                                     src="/icons/locations2.svg" 
                                     alt="Location" 
@@ -65,14 +65,14 @@ const Contact: React.FC = () => {
                                 />
                             </div>
                         </div>
-                        <div>
+                        <div className='text-sm'>
                             <p className="font-bold">Address</p>
                             <p>3 KG 686 st, Kigali</p>
                         </div>
                     </div>
                     <div className="flex items-center my-10">
-                        <div className="w-16 h-12 bg-[#183E5E] rounded-[8px] flex items-center justify-center mr-5">
-                            <div className='w-6 h-6 relative'>
+                        <div className="w-14 h-11 bg-[#183E5E] rounded-[8px] flex items-center justify-center mr-5">
+                            <div className='w-5 h-5 relative'>
                                     <Image 
                                         src="/icons/mail2.svg" 
                                         alt="Location" 
@@ -80,14 +80,14 @@ const Contact: React.FC = () => {
                                     />
                             </div>
                         </div>
-                        <div>
+                        <div className='text-sm'>
                             <p className="font-bold">Email</p>
                             <p>info@mozaikconcepts.com</p>
                         </div>
                     </div>
                     <div className="flex items-center ">
-                        <div className="w-16 h-12 bg-[#183E5E] rounded-[8px] flex items-center justify-center mr-5">
-                            <div className='w-6 h-6 relative'>
+                        <div className="w-14 h-11 bg-[#183E5E] rounded-[8px] flex items-center justify-center mr-5">
+                            <div className='w-5 h-5 relative'>
                                 <Image 
                                     src="/icons/phone2.svg" 
                                     alt="Location" 
@@ -95,13 +95,13 @@ const Contact: React.FC = () => {
                                 />
                             </div>
                         </div>
-                        <div>
+                        <div className='text-sm'>
                             <p className="font-bold">Phone</p>
                             <p>+250 791 903 218</p>
                         </div>
                     </div>
                 </div>
-                <div className="absolute bottom-[-20px] right-[-60px] w-28 h-28 -z-10">
+                <div className="absolute md:bottom-[-20px] bottom-[-40px] md:right-[-60px] right-[-20px] w-28 h-28 -z-10">
                     <Image 
                         src="/icons/decor.svg" 
                         alt="Decoration" 
@@ -112,52 +112,52 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Second Element */}
-            <div className="w-[50%]">
-                <h2 className="text-3xl text-black mb-10 uppercase font-[300]">Send us <span className='font-[800]'>a Message</span></h2>
+            <div className="md:w-[50%] w-full">
+                <h2 className="md:text-3xl text-2xl text-black mb-10 uppercase font-[300]">Send us <span className='font-[800]'>a Message</span></h2>
                 <form className="space-y-4" onSubmit={handleSubmit}>
-                    <div className="flex space-x-4">
-                        <div className='w-1/2 flex flex-col'>
+                    <div className="flex md:flex-row flex-col md:space-x-4 space-x-0">
+                        <div className='md:w-1/2 w-full flex flex-col md:mb-0 mb-3'>
                             <label className='text-[#535353] text-sm mb-2'>Full Name</label>
                             <input 
                                 type="text"
                                 name="name"
                                 value={formData.name} 
                                 placeholder="Enter your name" 
-                                className="w-full bg-[#F9F9F9] text-sm h-[48px] text-[#AFAFAF] px-4 border-none rounded" 
+                                className="w-full bg-[#F9F9F9] text-sm md:h-[48px] h-[40px] text-[#AFAFAF] px-4 border-none rounded" 
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className='w-1/2 flex flex-col'>
+                        <div className='md:w-1/2 w-full flex flex-col md:mb-0 mb-3'>
                             <label className='text-[#535353] text-sm mb-2'>Email</label>
                             <input 
                                 type="email" 
                                 name="email"
                                 value={formData.email}
                                 placeholder="Enter  your email" 
-                                className="w-full bg-[#F9F9F9] text-sm h-[48px] text-[#AFAFAF] px-4 border-none rounded" 
+                                className="w-full bg-[#F9F9F9] text-sm md:h-[48px] h-[40px] text-[#AFAFAF] px-4 border-none rounded" 
                                 onChange={handleChange}
                             />
                         </div>
                     </div>
-                    <div className="flex space-x-4">
-                        <div className='w-1/2 flex flex-col'>
+                    <div className="flex md:flex-row flex-col md:space-x-4 space-x-0">
+                        <div className='md:w-1/2 w-full flex flex-col md:mb-0 mb-3'>
                             <label className='text-[#535353] text-sm mb-2'>Phone Number</label>
                             <input 
                                 type="text" 
                                 name="phone"
                                 value={formData.phone}
                                 placeholder="Enter your phone number" 
-                                className="w-full bg-[#F9F9F9] text-sm h-[48px] text-[#AFAFAF] px-4 border-none rounded" 
+                                className="w-full bg-[#F9F9F9] text-sm md:h-[48px] h-[40px] text-[#AFAFAF] px-4 border-none rounded" 
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className='w-1/2 flex flex-col'>
+                        <div className='md:w-1/2 w-full flex flex-col md:mb-0 mb-3'>
                             <label className='text-[#535353] text-sm mb-2'>Topic</label>
                             <select 
                                 name="topic"
                                 value={formData.topic}
                                 onChange={handleChange}
-                                className="w-full bg-[#F9F9F9] text-sm h-[48px] text-[#AFAFAF] px-4 border-none rounded"
+                                className="w-full bg-[#F9F9F9] text-sm md:h-[48px] h-[40px] text-[#AFAFAF] px-4 border-none rounded"
                                 required
                                 >
                                 <option value="" disabled>Select topic</option>

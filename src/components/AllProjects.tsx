@@ -2,15 +2,30 @@ import { Project } from '@/interfaces/project';
 import { truncateDetails } from '@/utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 interface AllProjectsProps {
     projects: Project[];
 }
 
+// Add size range constants
+const SIZE_RANGES = {
+    small: { min: 0, max: 100 },
+    medium: { min: 101, max: 300 },
+    big: { min: 301, max: Infinity }
+  } as const;
+  
+  type SizeRangeKey = keyof typeof SIZE_RANGES;
+
 const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
+    const [filteredProjects, setFilteredProjects] = useState(projects);
     const router = useRouter();
+    const [visibleCount, setVisibleCount] = useState(3);
+    const projectsToShow = filteredProjects.slice(0, visibleCount);
+    const hasMore = visibleCount < filteredProjects.length;
+    const [sizeRange, setSizeRange] = useState<string>('');
+    const [projectType, setProjectType] = useState<string>('');
 
     const handleProjectClick = (projectId: string) => {
         const params = new URLSearchParams({
@@ -18,14 +33,78 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
         });
         router.push(`/project-details?${params.toString()}`);
     };
+
+    const loadMore = () => {
+        setVisibleCount(prev => Math.min(prev + 3, projects.length));
+    };
+    // Filter handlers
+  const handleSizeRangeFilter = (projects: Project[]) => {
+    if (!sizeRange) return projects;
+    
+    return projects.filter(project => {
+      const size = project.areaSize;
+      const range = SIZE_RANGES[sizeRange as SizeRangeKey];
+      return size >= range.min && size <= range.max;
+    });
+  };
+
+  const handleProjectTypeFilter = (projects: Project[]) => {
+    if (!projectType) return projects;
+    return projects.filter(project => project.type === projectType);
+  };
+
+    useEffect(() => {
+        let filtered = [...projects];
+        filtered = handleSizeRangeFilter(filtered);
+        filtered = handleProjectTypeFilter(filtered);
+        
+        setFilteredProjects(filtered);
+        setVisibleCount(3); // Reset to initial count when filters change
+    }, [sizeRange, projectType, projects]);
+
+  // Handle filter changes
+  const handleSizeRangeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSizeRange(e.target.value);
+  };
+
+  const handleProjectTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setProjectType(e.target.value);
+  };
+
     return (
-        <div className="w-4/5 mx-auto py-20">
-            {projects.map((project) => (
+        <div className="md:w-4/5 w-full mx-auto py-20">
+            <div className="w-full flex justify-end mb-10">
+                <div className="md:w-1/6 w-1/2 pr-2">
+                    <select 
+                        value={sizeRange}
+                        onChange={handleSizeRangeChange}
+                        className="mt-1 block text-black w-full pl-3 pr-10 py-2 bg-[#FBFBFB] h-[45px] md:text-base text-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    >
+                        <option value="">Size Range</option>
+                        <option value="small">Small (0-100 sqm)</option>
+                        <option value="medium">Medium (101-300 sqm)</option>
+                        <option value="big">Big (300+ sqm)</option>
+                    </select>
+                </div>
+                <div className="md:w-1/6 w-1/2 pl-2">
+                    <select 
+                        value={projectType}
+                        onChange={handleProjectTypeChange}
+                        className="mt-1 block text-black w-full pl-3 pr-10 py-2 bg-[#FBFBFB] h-[45px] md:text-base text-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    >
+                        <option value="">Project Type</option>
+                        {Array.from(new Set(projects.map(project => project.type))).map((type, index) => (
+                        <option key={index} value={type}>{type}</option>
+                        ))}
+                    </select>
+                </div>
+            </div>
+            {projectsToShow.map((project, index) => (
                 <div 
-                    key={project._id} 
-                    className="w-full flex space-between items-center mb-20 cursor-pointer"
+                    key={index} 
+                    className="w-full flex space-between items-center mb-20 cursor-pointer bg-[#FBFBFB] rounded-xl p-5 md:flex-row flex-col"
                 >
-                    <div className="w-[45%] h-[300px] relative rounded-xl">
+                    <div className="md:w-[45%] w-full md:h-[300px] h-[230px] relative rounded-xl md:mb-0 mb-10">
                         <Image 
                             src='https://res.cloudinary.com/mozaikconcepts/image/upload/v1737702224/thg4isdant9qbnyhixbi.png'
                             alt={project.name} 
@@ -34,7 +113,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                             // layout="responsive"
                         />
                     </div>
-                    <div className="w-[45%] ml-[5%]">
+                    <div className="md:w-[45%] w-full ml-[5%]">
                         <div className="flex justify-between">
                             <span className="w-1/2 uppercase font-bold text-sm text-black">{project.name}</span>
                             <span className='redex text-sm font-[400] text-black'>{project.areaSize} {project.areaUnit}</span>
@@ -44,7 +123,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                         </div>
                         <p className='text-[#474646] text-sm'>{truncateDetails(project.description,400)}</p>
                         <button 
-                            className="flex items-center justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[500] py-3 px-5 rounded-[8px] mt-5"
+                            className="flex items-center justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[500] py-3 px-5 rounded-[8px] mt-5"
                             onClick={() => handleProjectClick(project._id)}
                         >
                             View project
@@ -53,16 +132,22 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                     </div>
                 </div>
             ))}
-            <button className='text-center text-sm mx-auto flex flex-col items-center text-black font-bold uppercase'>
-                Scroll for more
-                <div className='w-[35px] h-[35px] relative'>
-                    <Image
-                        src='/icons/scroll.svg'
-                        alt='Scroll'
-                        fill
-                    />
-                </div>
-            </button>
+            {hasMore && (
+                <button 
+                    onClick={loadMore}
+                    className={`text-center text-sm mx-auto flex flex-col items-center text-black font-bold uppercase`}
+                >
+                    Scroll for more
+                    <div className='w-[35px] h-[35px] relative'>
+                        <Image
+                            src='/icons/scroll.svg'
+                            alt='Scroll'
+                            fill
+                        />
+                    </div>
+                </button>
+            )}
+
         </div>
     );
 };

@@ -33,14 +33,14 @@ const Projects: React.FC = () => {
                     <h2 className="text-md font-bold text-center uppercase text-black">Our Projects</h2>
                     <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                 </div>
-                <p className="text-3xl text-black text-center mb-8 md:px-[20%] font-[600] uppercase redex">Explore Our Projects: Inspiring Spaces, Exceptional Experiences.</p>
-                <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-7 gap-8 mt-24">
+                <p className="md:text-3xl text-xl text-black text-center mb-8 md:px-[20%] font-[600] uppercase redex">Explore Our Projects: Inspiring Spaces, Exceptional Experiences.</p>
+                <div className="md:w-[90%] w-full mx-auto grid grid-cols-1 md:grid-cols-7 gap-8 mt-24">
                     <div 
-                        className="flex items-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl cursor-pointer"
+                        className="flex items-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 md:h-80 h-64 rounded-xl cursor-pointer"
                         style={{ backgroundImage: `url(${allProjects[0]?.thumbnailAfter})` }}
                         onClick={() => handleProjectClick(allProjects[0]?._id)}
                     >
-                        <div className="w-1/2 h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl cursor-pointer">
+                        <div className="md:w-3/4 w-full h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl cursor-pointer">
                             <div className="flex justify-between text-white">
                                 <span className='uppercase font-medium text-sm text-white'>{allProjects[0]?.name}</span>
                                 <span className='redex text-sm font-[300]'>{allProjects[0]?.areaSize} {allProjects[0]?.areaUnit}</span>
@@ -51,11 +51,11 @@ const Projects: React.FC = () => {
                         </div>
                     </div>
                     <div 
-                        className="flex items-end justify-end md:col-span-3 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl cursor-pointer" 
+                        className="flex items-end justify-end md:col-span-3 bg-cover bg-center bg-black bg-opacity-50 md:h-80 h-64 rounded-xl cursor-pointer" 
                         style={{ backgroundImage: `url(${allProjects[1]?.thumbnailAfter})` }}
                         onClick={() => handleProjectClick(allProjects[1]?._id)}    
                     >
-                        <div className="md:w-[80%] h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl cursor-pointer">
+                        <div className="md:w-[80%] w-full h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl cursor-pointer">
                             <div className="md:w-full flex justify-between text-white">
                                 <span className='md:w-[60%] uppercase font-medium text-sm text-white'>{allProjects[1]?.name}</span>
                                 <span className='md:w-[22%] redex text-sm font-[300]'> {allProjects[1]?.areaSize} {allProjects[1]?.areaUnit}</span>
@@ -66,11 +66,11 @@ const Projects: React.FC = () => {
                         </div>
                     </div>
                     <div 
-                        className="flex items-end md:col-span-3 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl" 
+                        className="flex items-end md:col-span-3 bg-cover bg-center bg-black bg-opacity-50 md:h-80 h-64 rounded-xl" 
                         style={{ backgroundImage: `url(${allProjects[2]?.thumbnailAfter})` }}
                         onClick={() => handleProjectClick(allProjects[2]?._id)}    
                     >
-                        <div className="w-3/4 h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
+                        <div className="md:w-3/4 w-full h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
                             <div className="flex justify-between text-white">
                                 <span className='uppercase font-medium text-sm text-white'>{allProjects[2]?.name}</span>
                                 <span className='redex text-sm font-[300]'> {allProjects[2]?.areaSize} {allProjects[2]?.areaUnit}</span>
@@ -81,11 +81,11 @@ const Projects: React.FC = () => {
                         </div>
                     </div>
                     <div 
-                        className="flex items-end justify-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl" 
+                        className="flex items-end justify-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 md:h-80 h-64 rounded-xl" 
                         style={{ backgroundImage: `url(${allProjects[3]?.thumbnailAfter})` }}
                         onClick={() => handleProjectClick(allProjects[3]?._id)}    
                     >
-                        <div className="w-2/3 h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
+                        <div className="md:w-3/4 w-full h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
                             <div className="flex justify-between text-white">
                                 <span className='uppercase font-medium text-sm text-white'>{allProjects[3]?.name}</span>
                                 <span className='redex text-sm font-[300]'> {allProjects[3]?.areaSize} {allProjects[3]?.areaUnit}</span>
@@ -99,7 +99,7 @@ const Projects: React.FC = () => {
                 <div className='w-full flex justify-center'>
                     <Link 
                         href='/projects' 
-                        className="flex items-center justify-between mt-8 bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]"
+                        className="flex items-center justify-between mt-8 bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-3 px-5 rounded-[8px]"
                     >
                         View all projects
                         <MdKeyboardArrowRight className='text-2xl ml-2' />

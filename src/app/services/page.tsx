@@ -56,7 +56,7 @@ const Services: React.FC = () => {
                             and solve potential issues before they arise, saving time and
                             increasing efficiency in our work."
                         </p>
-                        <button className="flex items-center mt-10 capitalize justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]">
+                        <button className="flex items-center mt-10 capitalize justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-3 px-5 rounded-[8px]">
                             Request free consultation
                             <MdKeyboardArrowRight className='text-2xl ml-2' />
                         </button>
@@ -86,7 +86,7 @@ const Services: React.FC = () => {
                         <p className="text-[#4C4B4B] mb-4">"From the beginning of each project, we work with you to create the ideal atmosphere for your new space. We guide you on the choice of colors, materials, flooring type, acoustics, lighting, and layout – it's our specialty. Moreover, we are capable of managing projects of all sizes, overseeing
                         every aspect of the construction."
                         </p>
-                        <button className="flex items-center mt-10 capitalize justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]">
+                        <button className="flex items-center mt-10 capitalize justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-3 px-5 rounded-[8px]">
                             Request free consultation
                             <MdKeyboardArrowRight className='text-2xl ml-2' />
                         </button>
@@ -115,7 +115,7 @@ const Services: React.FC = () => {
                         <h2 className="w-1/2 text-xl font-bold uppercase text-black mb-4">Finishing and Partitioning Work</h2>
                         <p className="text-[#4C4B4B] mb-4">"A key stage in the arrangement, furniture brings life to a space. Designing furniture is not just about choosing a desk from a vendor. It's much more than that. It's about thinking about spaces as a whole to serve a vision, usage, and functionality objectives, as well as aesthetics and comfort."
                         </p>
-                        <button className="flex items-center mt-10 capitalize justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]">
+                        <button className="flex items-center mt-10 capitalize justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-3 px-5 rounded-[8px]">
                             Request free consultation
                             <MdKeyboardArrowRight className='text-2xl ml-2' />
                         </button>

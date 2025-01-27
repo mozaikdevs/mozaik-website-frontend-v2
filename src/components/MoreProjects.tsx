@@ -22,17 +22,17 @@ const MoreProjects: React.FC<MoreProjectsProps> = ({ currentProjectId }) => {
     };
 
     return (
-        <section className='py-20'>
-            <h2 className="text-2xl text-black redex font-bold mb-3">More Projects</h2>
-            <div className="w-full mx-auto grid grid-cols-2 md:grid-cols-8 gap-8 mt-10">
+        <section className='py-20 md:px-0 px-5'>
+            <h2 className="md:text-2xl text-xl md:text-start text-center text-black redex font-bold mb-3">More Projects</h2>
+            <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-8 gap-8 mt-10">
                 {randomProjects.map((project: Project) => (
                     <div 
                         key={project._id} 
-                        className="flex items-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 h-80 rounded-xl cursor-pointer" 
+                        className="flex items-end md:col-span-4 bg-cover bg-center bg-black bg-opacity-50 md:h-80 h-64 rounded-xl cursor-pointer" 
                         style={{ backgroundImage: `url(${project.thumbnailAfter})` }}
                         onClick={() => handleProjectClick(project._id)}
                     >
-                        <div className="w-2/3 h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
+                        <div className="md:w-2/3 w-full h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl">
                             <div className="flex justify-between text-white">
                                 <span className='uppercase font-bold text-sm redex text-white'>{project.name}</span>
                                 <span className='redex text-sm font-[300]'> {project.areaSize} {project.areaUnit}</span>
@@ -44,10 +44,10 @@ const MoreProjects: React.FC<MoreProjectsProps> = ({ currentProjectId }) => {
                     </div>
                 ))}
             </div>
-            <div className='w-full flex justify-end'>
+            <div className='w-full flex md:justify-end justify-center'>
                 <Link 
                     href='/projects' 
-                    className="flex items-center justify-between mt-8 bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]"
+                    className="flex items-center justify-between mt-8 bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-3 px-5 rounded-[8px]"
                 >
                     View all projects
                     <MdKeyboardArrowRight className='text-2xl ml-2' />

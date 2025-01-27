@@ -17,18 +17,18 @@ const ProjectsPage: React.FC = () => {
 
     return (
         <DefaultLayout>
-            <div className="bg-white min-h-screen px-16">
-                <section className="flex justify-between items-end bg-[#FAFAFA] rounded-xl p-10">
+            <div className="bg-white min-h-screen md:px-16 px-5">
+                <section className="flex justify-between items-end bg-[#FAFAFA] rounded-xl p-10 md:flex-row flex-col">
                     <div>
                         <div className='flex justify-start items-center mb-10'>
                             <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
                             <h2 className="text-md font-bold text-center uppercase text-black redex">OUR PROJECTS</h2>
                             <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                         </div>
-                        <p className="text-2xl text-black uppercase font-[300]">Experience from <span className='font-[700]'>over 80+ </span>projects</p>
+                        <p className="md:text-2xl text-xl text-black uppercase font-[300]">Experience from <span className='font-[700]'>over 80+ </span>projects</p>
                         <p className="text-2xl text-black uppercase"><span className='font-[700]'>for your</span> company</p>
                     </div>
-                    <div className='w-1/2'>
+                    <div className='md:w-1/2 w-full md:mt-0 mt-5'>
                         <p className='text-[#4C4B4B]'>From finishing and partitioning to bespoke furniture and decor, our team combines style and innovation to create unique, transformative environments that reflect our clients' vision and lifestyle."</p>
                     </div>
                 </section>
