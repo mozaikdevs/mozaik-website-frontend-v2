@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -15,10 +16,10 @@ const WhyChooseUs: React.FC = () => {
                     <p className="md:w-[40%] w-full border-l-4 border-white pl-4">We leverage innovative technology and smart design to transform workspaces into hubs of efficiency and collaboration.</p>
                     <p className="md:w-[40%] w-full border-l-4 border-white pl-4">Our approach blends creativity with purpose, shaping environments that inspire productivity and support growth.</p>
                 </div>
-                <button className="flex items-center text-sm justify-start mx-auto mt-20 bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[500] py-3 md:px-8 px-4 rounded-[8px]">
+                <Link href="/#contact" className="flex items-center text-sm justify-start mx-auto mt-20 bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[500] py-3 md:px-8 px-4 rounded-[8px]">
                     Request for a Free Consultation
                     <MdKeyboardArrowRight className='text-2xl ml-2' />
-                </button>
+                </Link>
             </div>
         </div>
     );

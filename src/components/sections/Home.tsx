@@ -25,10 +25,10 @@ const Home: FC = () => {
                         <h1 className="text-white uppercase text-sm md:text-xl font-semibold ml-3">MOZAIK CONCEPTS</h1>
                     </div>
                     <h1 className="md:text-5xl text-2xl font-bold my-8 uppercase leading-normal">transform your office space with us</h1>
-                    <button className="flex text-sm justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-2 md:py-4 px-3 md:px-6 rounded-[8px] capitalize">
+                    <Link href="/#contact" className="flex text-sm justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-2 md:py-4 px-3 md:px-6 rounded-[8px] capitalize">
                         request free consultation
                         <MdKeyboardArrowRight className='text-xl ml-2' />
-                    </button>
+                    </Link>
                 </div>
             </section>
         </div>
