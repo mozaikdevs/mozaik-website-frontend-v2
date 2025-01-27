@@ -5,11 +5,18 @@ import { AppDispatch } from '@/redux/store';
 import { getAllProjects } from '@/services/client';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import React, { use, useEffect, useRef, useState } from 'react';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const ProjectDetails: React.FC = () => {
+const ProjectDetails = () => {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProjectDetailsContent />
+      </Suspense>
+    );
+};
+
+const ProjectDetailsContent: React.FC = () => {
     const searchParams = useSearchParams();
         const dispatch = useDispatch<AppDispatch>();
         const containerRef = useRef<HTMLDivElement>(null);
