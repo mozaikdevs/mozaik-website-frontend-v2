@@ -5,7 +5,8 @@ import { AppDispatch } from '@/redux/store';
 import { getAllProjects } from '@/services/client';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProjectDetails = () => {

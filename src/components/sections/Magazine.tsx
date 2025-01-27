@@ -5,10 +5,10 @@ import { getAllBlogs } from '@/services/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import { MdArrowOutward, MdKeyboardArrowRight } from 'react-icons/md';
+import { MdArrowOutward } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import { Blog } from '@/interfaces/blog';
 
 // Import Swiper styles
@@ -63,7 +63,7 @@ const Magazine: React.FC = () => {
                     },
                 }}
             >
-                {blogs.map((blog: Blog, index: number) => (
+                {blogs.map((blog: Blog) => (
                     <SwiperSlide key={blog._id}>
                         <div className="px-4">
                             <div className="relative md:w-[90%] w-full md:h-80 h-64 bg-gray-300 rounded-lg mb-4">

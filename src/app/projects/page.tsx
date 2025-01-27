@@ -2,14 +2,14 @@
 
 import AllProjects from '@/components/AllProjects';
 import DefaultLayout from '@/components/DefaultLayout';
-import { AppDispatch } from '@/redux/store';
+import { AppDispatch, RootState } from '@/redux/store';
 import { getAllProjects } from '@/services/client';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProjectsPage: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const allProjects = useSelector((state: any) => state.projects.projects);
+    const allProjects = useSelector((state: RootState) => state.projects.projects);
 
     useEffect(() => {
         dispatch(getAllProjects());

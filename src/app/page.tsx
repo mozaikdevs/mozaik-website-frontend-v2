@@ -1,6 +1,5 @@
 'use client'
 
-import Image from "next/image";
 import HomeSection from "../components/sections/Home";
 import Services from "@/components/sections/Services";
 import Projects from "@/components/sections/Projects";

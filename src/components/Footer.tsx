@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { FaFacebook, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaFacebookF } from 'react-icons/fa6';
 
 const Footer: React.FC = () => {
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                     <div className="w-10 h-10 bg-[#1B4D77] rounded-[8px] flex items-center justify-center mr-3">
                         <div className='w-5 h-5 relative'>
                                 <Image 
-                                    src="/icons/mail.svg" 
+                                    src='/icons/mail.svg' 
                                     alt="Location" 
                                     fill
                                 />
