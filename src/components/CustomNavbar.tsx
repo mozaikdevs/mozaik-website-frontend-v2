@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const CustomNavbar: React.FC = () => {
     return (

@@ -17,7 +17,7 @@ const Home: FC = () => {
                     <div className="flex items-center">
                         <div className="relative w-[21px] h-[21px]">
                             <Image
-                                src="/icons/logo-white.svg"
+                                src='/icons/logo-white.svg'
                                 alt="Mozaik concepts Logo"
                                 fill
                             />

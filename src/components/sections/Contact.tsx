@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { submitContactForm } from '@/services/client';
 import Image from 'next/image';
 import React from 'react';
-import { FaFacebookF } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 
@@ -30,7 +29,9 @@ const Contact: React.FC = () => {
             toast.success('Message sent successfully!');
             setFormData(initialState);
         } catch (error) {
-            toast.error('Failed to send message. Please try again.');
+            if(error){
+                toast.error('Failed to send message. Please try again.');
+            }
         } finally {
             setLoading(false);
         }

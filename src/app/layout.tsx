@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "../styles/globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Providers } from "@/redux/provider";
 
 export const metadata: Metadata = {

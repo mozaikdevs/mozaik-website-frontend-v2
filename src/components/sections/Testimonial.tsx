@@ -3,12 +3,12 @@ import type { Testimonial } from '@/interfaces/testimonial';
 import { AppDispatch } from '@/redux/store';
 import { getAllTestimonials } from '@/services/client';
 import Image from 'next/image'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { FaQuoteLeft } from 'react-icons/fa';
 import { IoIosArrowRoundForward } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import { Swiper as SwiperType } from 'swiper';
 
 // Import Swiper styles
@@ -19,8 +19,6 @@ import { truncateDetails } from '@/utils';
 
 
 const Testimonial: React.FC = () => {
-    const carouselRef = useRef<HTMLDivElement>(null)
-
     const dispatch = useDispatch<AppDispatch>();
     const { testimonials } = useSelector((state: any) => state.testimonials);
     useEffect(() => {
