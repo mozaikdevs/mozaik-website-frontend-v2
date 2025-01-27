@@ -2,18 +2,30 @@ import { Project } from '@/interfaces/project';
 import { truncateDetails } from '@/utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 interface AllProjectsProps {
     projects: Project[];
 }
 
+// Add size range constants
+const SIZE_RANGES = {
+    small: { min: 0, max: 100 },
+    medium: { min: 101, max: 300 },
+    big: { min: 301, max: Infinity }
+  } as const;
+  
+  type SizeRangeKey = keyof typeof SIZE_RANGES;
+
 const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
+    const [filteredProjects, setFilteredProjects] = useState(projects);
     const router = useRouter();
     const [visibleCount, setVisibleCount] = useState(3);
-    const projectsToShow = projects.slice(0, visibleCount);
-    const hasMore = visibleCount < projects.length;
+    const projectsToShow = filteredProjects.slice(0, visibleCount);
+    const hasMore = visibleCount < filteredProjects.length;
+    const [sizeRange, setSizeRange] = useState<string>('');
+    const [projectType, setProjectType] = useState<string>('');
 
     const handleProjectClick = (projectId: string) => {
         const params = new URLSearchParams({
@@ -25,9 +37,68 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
     const loadMore = () => {
         setVisibleCount(prev => Math.min(prev + 3, projects.length));
     };
+    // Filter handlers
+  const handleSizeRangeFilter = (projects: Project[]) => {
+    if (!sizeRange) return projects;
+    
+    return projects.filter(project => {
+      const size = project.areaSize;
+      const range = SIZE_RANGES[sizeRange as SizeRangeKey];
+      return size >= range.min && size <= range.max;
+    });
+  };
+
+  const handleProjectTypeFilter = (projects: Project[]) => {
+    if (!projectType) return projects;
+    return projects.filter(project => project.type === projectType);
+  };
+
+    useEffect(() => {
+        let filtered = [...projects];
+        filtered = handleSizeRangeFilter(filtered);
+        filtered = handleProjectTypeFilter(filtered);
+        
+        setFilteredProjects(filtered);
+        setVisibleCount(3); // Reset to initial count when filters change
+    }, [sizeRange, projectType, projects]);
+
+  // Handle filter changes
+  const handleSizeRangeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSizeRange(e.target.value);
+  };
+
+  const handleProjectTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setProjectType(e.target.value);
+  };
 
     return (
         <div className="md:w-4/5 w-full mx-auto py-20">
+            <div className="w-full flex justify-end mb-10">
+                <div className="md:w-1/6 w-1/2 pr-2">
+                    <select 
+                        value={sizeRange}
+                        onChange={handleSizeRangeChange}
+                        className="mt-1 block text-black w-full pl-3 pr-10 py-2 bg-[#FBFBFB] h-[45px] md:text-base text-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    >
+                        <option value="">Size Range</option>
+                        <option value="small">Small (0-100 sqm)</option>
+                        <option value="medium">Medium (101-300 sqm)</option>
+                        <option value="big">Big (300+ sqm)</option>
+                    </select>
+                </div>
+                <div className="md:w-1/6 w-1/2 pl-2">
+                    <select 
+                        value={projectType}
+                        onChange={handleProjectTypeChange}
+                        className="mt-1 block text-black w-full pl-3 pr-10 py-2 bg-[#FBFBFB] h-[45px] md:text-base text-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    >
+                        <option value="">Project Type</option>
+                        {Array.from(new Set(projects.map(project => project.type))).map((type, index) => (
+                        <option key={index} value={type}>{type}</option>
+                        ))}
+                    </select>
+                </div>
+            </div>
             {projectsToShow.map((project, index) => (
                 <div 
                     key={index} 
