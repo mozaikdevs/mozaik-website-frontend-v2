@@ -2,7 +2,7 @@ import { Project } from '@/interfaces/project';
 import { truncateDetails } from '@/utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 interface AllProjectsProps {
@@ -11,6 +11,9 @@ interface AllProjectsProps {
 
 const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
     const router = useRouter();
+    const [visibleCount, setVisibleCount] = useState(3);
+    const projectsToShow = projects.slice(0, visibleCount);
+    const hasMore = visibleCount < projects.length;
 
     const handleProjectClick = (projectId: string) => {
         const params = new URLSearchParams({
@@ -18,11 +21,16 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
         });
         router.push(`/project-details?${params.toString()}`);
     };
+
+    const loadMore = () => {
+        setVisibleCount(prev => Math.min(prev + 3, projects.length));
+    };
+
     return (
         <div className="md:w-4/5 w-full mx-auto py-20">
-            {projects.map((project) => (
+            {projectsToShow.map((project, index) => (
                 <div 
-                    key={project._id} 
+                    key={index} 
                     className="w-full flex space-between items-center mb-20 cursor-pointer bg-[#FBFBFB] rounded-xl p-5 md:flex-row flex-col"
                 >
                     <div className="md:w-[45%] w-full md:h-[300px] h-[230px] relative rounded-xl md:mb-0 mb-10">
@@ -53,16 +61,22 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                     </div>
                 </div>
             ))}
-            <button className='text-center text-sm mx-auto flex flex-col items-center text-black font-bold uppercase'>
-                Scroll for more
-                <div className='w-[35px] h-[35px] relative'>
-                    <Image
-                        src='/icons/scroll.svg'
-                        alt='Scroll'
-                        fill
-                    />
-                </div>
-            </button>
+            {hasMore && (
+                <button 
+                    onClick={loadMore}
+                    className={`text-center text-sm mx-auto flex flex-col items-center text-black font-bold uppercase`}
+                >
+                    Scroll for more
+                    <div className='w-[35px] h-[35px] relative'>
+                        <Image
+                            src='/icons/scroll.svg'
+                            alt='Scroll'
+                            fill
+                        />
+                    </div>
+                </button>
+            )}
+
         </div>
     );
 };
