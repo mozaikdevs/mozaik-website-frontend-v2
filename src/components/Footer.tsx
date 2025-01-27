@@ -16,23 +16,23 @@ const Footer: React.FC = () => {
                     <h1 className='text-[15px] font-semibold mb-3'>LINKS</h1>
                     <div className='flex flex-row'>
                         <div className='mr-10'>
-                            <a href="#link1" className="block font-[200] text-[14px] mb-3">Home</a>
-                            <a href="#link2" className="block font-[200] text-[14px] mb-3">Services</a>
-                            <a href="#link3" className="block font-[200] text-[14px] mb-3">About</a>
+                            <Link href="/" className="block font-[200] text-[14px] mb-3">Home</Link>
+                            <Link href="/services" className="block font-[200] text-[14px] mb-3">Services</Link>
+                            <Link href="/about" className="block font-[200] text-[14px] mb-3">About</Link>
                         </div>
                         <div>
-                            <a href="#link1" className="block font-[200] text-[14px] mb-3">Projects</a>
-                            <a href="#link2" className="block font-[200] text-[14px] mb-3">Blog</a>
-                            <a href="#link3" className="block font-[200] text-[14px] mb-3">Portofolio</a>
+                            <Link href="/projects" className="block font-[200] text-[14px] mb-3">Projects</Link>
+                            <Link href="#link2" className="block font-[200] text-[14px] mb-3">Blog</Link>
+                            <Link href="/portofolio" className="block font-[200] text-[14px] mb-3">Portofolio</Link>
                         </div>
                     </div>
                 </div>
                 <div className='text-white'>
                     <h1 className='text-[15px] font-semibold mb-3'>SERVICES</h1>
                     <div className=''>
-                        <a href="#link1" className="block font-[200] text-[14px] mb-3">Design Development & Space Planning</a>
-                        <a href="#link2" className="block font-[200] text-[14px] mb-3">Finishing & Partitioning Work</a>
-                        <a href="#link3" className="block font-[200] text-[14px] mb-3">Furniture & Decoration</a>
+                        <Link href="/services/#design" className="block font-[200] text-[14px] mb-3">Design Development & Space Planning</Link>
+                        <Link href="/services/#finishing" className="block font-[200] text-[14px] mb-3">Finishing & Partitioning Work</Link>
+                        <Link href="/services/#furniture" className="block font-[200] text-[14px] mb-3">Furniture & Decoration</Link>
                     </div>
                 </div>
             </div>

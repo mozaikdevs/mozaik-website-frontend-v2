@@ -1,5 +1,6 @@
 import DefaultLayout from '@/components/DefaultLayout';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -50,10 +51,12 @@ const About: React.FC = () => {
                             </div>
                         ))}
                     </div>
-                    <button className="flex capitalize items-center mx-auto justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[500] py-3 px-5 rounded-[8px] mt-5">
-                        request free consultation
-                        <MdKeyboardArrowRight className='text-2xl ml-2' />
-                    </button>
+                    <div className='w-full flex justify-center'>
+                        <Link href="/#contact" className="inline-flex capitalize items-center mx-auto justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[500] py-3 px-5 rounded-[8px] mt-5">
+                            request free consultation
+                            <MdKeyboardArrowRight className='text-2xl ml-2' />
+                        </Link>
+                    </div>
                 </section>
                 <section className="w-full bg-[#FAFAFA] rounded-xl py-28 px-56 mt-12 flex items-center">
                     <div className="w-1/2 h-[300px] rounded-xl relative">

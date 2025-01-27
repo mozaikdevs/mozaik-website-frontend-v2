@@ -36,7 +36,7 @@ export default function Home() {
         <section>
           <Testimonial/>
         </section>
-        <section>
+        <section id="contact">
           <Contact/>
         </section>
       </div>
