@@ -20,7 +20,7 @@ const CustomNavbar: React.FC = () => {
                     <Link href="/about" className="hover:text-gray-400">About</Link>
                     <Link href="/" className="hover:text-gray-400">Website</Link>
                 </div>
-                <button className="flex justify-between bg-[#FFFFFF] hover:bg-blue-700 text-black font-[600] py-3 px-8 rounded-[8px] text-sm">
+                <button className="flex justify-between bg-[#FFFFFF] hover:bg-[#ae7c18] text-black font-[600] py-3 px-8 rounded-[8px] text-sm">
                     Reach to us
                 </button>
             </div>

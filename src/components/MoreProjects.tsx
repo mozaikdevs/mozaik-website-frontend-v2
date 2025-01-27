@@ -47,7 +47,7 @@ const MoreProjects: React.FC<MoreProjectsProps> = ({ currentProjectId }) => {
             <div className='w-full flex md:justify-end justify-center'>
                 <Link 
                     href='/projects' 
-                    className="flex items-center justify-between mt-8 bg-[#E09F1F] hover:bg-blue-700 text-white font-[600] py-3 px-5 rounded-[8px]"
+                    className="flex items-center justify-between mt-8 bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-3 px-5 rounded-[8px]"
                 >
                     View all projects
                     <MdKeyboardArrowRight className='text-2xl ml-2' />

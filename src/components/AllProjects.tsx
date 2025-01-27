@@ -123,7 +123,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                         </div>
                         <p className='text-[#474646] text-sm'>{truncateDetails(project.description,400)}</p>
                         <button 
-                            className="flex items-center justify-between bg-[#E09F1F] hover:bg-blue-700 text-white font-[500] py-3 px-5 rounded-[8px] mt-5"
+                            className="flex items-center justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[500] py-3 px-5 rounded-[8px] mt-5"
                             onClick={() => handleProjectClick(project._id)}
                         >
                             View project
