@@ -16,7 +16,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { truncateDetails } from '@/utils';
-import { log } from 'node:console';
 import Link from 'next/link';
 import { MdArrowOutward } from 'react-icons/md';
 
@@ -26,7 +25,6 @@ const Testimonial: React.FC = () => {
     const { testimonials, loading } = useSelector((state: any) => state.testimonials);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
-    console.log("testimonials", testimonials);
 
     useEffect(() => {
         dispatch(getAllTestimonials());
