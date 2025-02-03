@@ -89,9 +89,9 @@ const ProjectDetailsContent: React.FC = () => {
     };
   }, [showAfter]);
 
-    if (loading) {
-        return <div className="text-white">Loading...</div>;
-    }
+  if (loading) {
+    return <SkeletonProjectDetails />;
+  }
     return (
         <DefaultLayout>
             <div className='bg-white min-h-screen py-8 md:px-20 px-0'>
@@ -209,6 +209,47 @@ const ProjectDetailsContent: React.FC = () => {
                 <MoreProjects currentProjectId={projectId || ''} />
             </div>
         </DefaultLayout>
+    );
+};
+
+const SkeletonProjectDetails: React.FC = () => {
+    return (
+      <div className='bg-white min-h-screen py-8 md:px-20 px-0 animate-pulse'>
+        <section className='relative'>
+          <div className="flex md:rounded-xl rounded-none md:h-[400px] md:flex-row flex-col">
+            {/* Desktop View */}
+            <div className="hidden md:flex md:flex-row w-full">
+              <div className="relative w-1/2 h-full rounded-xl bg-gray-300"></div>
+              <div className="relative w-1/2 h-full rounded-xl bg-gray-300"></div>
+            </div>
+  
+            {/* Mobile View with Toggle */}
+            <div className="md:hidden relative w-full h-[400px] overflow-hidden">
+              <div className="relative w-full h-full bg-gray-300"></div>
+            </div>
+          </div>
+  
+          {/* Project Info Section */}
+          <div className="absolute md:bottom-4 left-4 bottom-[27rem] md:w-2/3 w-[90%] p-5 rounded-xl grid md:grid-cols-4 grid-cols-2 md:gap-y-0 gap-y-4 mt-4 bg-gray-300"></div>
+        </section>
+  
+        {/* Project Description */}
+        <section className='mt-10 px-5'>
+          <div className='bg-gray-300 h-6 w-1/2 mb-4 rounded'></div>
+          <div className='bg-gray-300 h-4 w-full mb-2 rounded'></div>
+          <div className='bg-gray-300 h-4 w-full mb-2 rounded'></div>
+          <div className='bg-gray-300 h-4 w-full mb-2 rounded'></div>
+          <div className='bg-gray-300 h-4 w-full mb-2 rounded'></div>
+          <div className='bg-gray-300 h-4 w-3/4 mb-2 rounded'></div>
+        </section>
+  
+        {/* Section of Images */}
+        <section className='mt-10 px-5 grid grid-cols-1 md:grid-cols-3 gap-4'>
+          <div className='bg-gray-300 h-64 rounded'></div>
+          <div className='bg-gray-300 h-64 rounded'></div>
+          <div className='bg-gray-300 h-64 rounded'></div>
+        </section>
+      </div>
     );
 };
 
