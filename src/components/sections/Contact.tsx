@@ -23,7 +23,15 @@ const Contact: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        
+        if(!formData.name || !formData.email || !formData.phone || !formData.topic || !formData.message){
+            setLoading(false);
+            if(!formData.name) return toast.error('Name is required');
+            if(!formData.email) return toast.error('Email is required');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailRegex.test(formData.email)) return toast.error('Invalid email address');
+            if(!formData.topic) return toast.error('Topic is required');
+            if(!formData.message) return toast.error('Message is required');
+        }
         try {
             await dispatch(submitContactForm(formData)).unwrap();
             toast.success('Message sent successfully!');
@@ -131,7 +139,7 @@ const Contact: React.FC = () => {
                         <div className='md:w-1/2 w-full flex flex-col md:mb-0 mb-3'>
                             <label className='text-[#535353] text-sm mb-2'>Email</label>
                             <input 
-                                type="email" 
+                                type="text" 
                                 name="email"
                                 value={formData.email}
                                 placeholder="Enter  your email" 
@@ -159,7 +167,6 @@ const Contact: React.FC = () => {
                                 value={formData.topic}
                                 onChange={handleChange}
                                 className="w-full bg-[#F9F9F9] text-sm md:h-[48px] h-[40px] text-[#AFAFAF] px-4 border-none rounded"
-                                required
                                 >
                                 <option value="" disabled>Select topic</option>
                                 <option value="general">General Inquiry</option>
