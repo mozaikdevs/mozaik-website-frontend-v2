@@ -3,7 +3,7 @@ import React from 'react';
 
 const Services: React.FC = () => {
     return (
-        <div className="md:py-44 py-32">
+        <div className="md:py-44 py-32" style={{ backgroundImage: "url('/images/bg-6.png')", backgroundPosition: '30% -30%' }}>
             <div className="container mx-auto px-4">
                 <div className='flex justify-center items-center mb-10'>
                     <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>

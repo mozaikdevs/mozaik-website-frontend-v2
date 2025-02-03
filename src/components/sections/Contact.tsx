@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
         <section className="flex md:flex-row flex-col-reverse justify-between md:px-32 md:py-32 px-5 py-10">
             <ToastContainer />
             {/* First Element */}
-            <div className="relative md:w-2/5 w-full md:mt-0 mt-16 bg-[#143755] rounded-2xl p-10 text-white z-10">
+            <div className="relative md:w-2/5 w-full bg-[#143755] md:mt-0 mt-16 bg-cover bg-center rounded-2xl p-10 text-white z-10" style={{ backgroundImage: "url('/images/bg-5.png')", backgroundSize: '250%', backgroundPosition: 'center' }}>
                 <div className='flex justify-start items-center'>
                     <div className='h-4 w-2 bg-[#E09F1F] mr-2'></div>
                     <h2 className="text-sm font-bold text-center uppercase text-[#E09F1F]">Reach out to us</h2>
@@ -109,7 +109,7 @@ const Contact: React.FC = () => {
                         layout="fill" 
                     />
                 </div>
-                <div className="absolute inset-0 bg-[#143755] rounded-2xl z-[-1]"></div>
+                <div className="absolute inset-0 rounded-2xl z-[-1]"></div>
             </div>
 
             {/* Second Element */}
