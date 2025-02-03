@@ -19,7 +19,7 @@ import { formatDate } from '@/utils';
 
 const Magazine: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const { blogs } = useSelector((state: any) => state.blogs);
+    const { blogs, loading } = useSelector((state: any) => state.blogs);
 
     useEffect(() => {
         dispatch(getAllBlogs());
@@ -63,7 +63,14 @@ const Magazine: React.FC = () => {
                     },
                 }}
             >
-                {blogs.map((blog: Blog) => (
+                {loading ? (
+                Array.from({ length: 3 }).map((_, index) => (
+                    <SwiperSlide key={index}>
+                    <SkeletonCard />
+                    </SwiperSlide>
+                ))
+                ) : (
+                blogs.map((blog: Blog) => (
                     <SwiperSlide key={blog._id}>
                         <div className="px-4">
                             <div className="relative md:w-[90%] w-full md:h-80 h-64 bg-gray-300 rounded-lg mb-4">
@@ -92,9 +99,24 @@ const Magazine: React.FC = () => {
                             </Link>
                         </div>
                     </SwiperSlide>
-                ))}
+                )))}
             </Swiper>
         </section>
+    );
+};
+
+const SkeletonCard: React.FC = () => {
+    return (
+      <div className="px-4 animate-pulse">
+        <div className="relative md:w-[90%] w-full md:h-80 h-64 bg-gray-300 rounded-lg mb-4"></div>
+        <div className="flex text-sm text-[#B8B8B8]">
+          <div className="bg-gray-300 h-4 w-1/3 mr-2"></div>
+          <div className="bg-gray-300 h-4 w-1/4"></div>
+        </div>
+        <div className="bg-gray-300 h-6 w-3/4 mb-4 mt-2"></div>
+        <div className="bg-gray-300 h-4 w-1/2 mb-2"></div>
+        <div className="bg-gray-300 h-4 w-1/3"></div>
+      </div>
     );
 };
 

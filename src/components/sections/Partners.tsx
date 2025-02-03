@@ -1,3 +1,4 @@
+'use client'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
@@ -7,7 +8,7 @@ import { Client } from '@/interfaces/client';
 
 const Partners: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const allClients = useSelector((state: any) => state.clients.clients);
+    const {clients, loading} = useSelector((state: any) => state.clients);
 
     useEffect(() => {
         dispatch(getAllClients());
@@ -29,8 +30,13 @@ const Partners: React.FC = () => {
                     <p className='text-[#4C4B4B] md:text-start text-center'>We are passionate about delivering cutting-edge digital innovation, achieving remarkable results that we are proud of."</p>
                 </div>
             </div>
-            <div className={`grid ${allClients.length <= 10 ? allClients.length % 2 === 0 ? `md:grid-cols-${allClients.length/2}` : `md:grid-cols-${(allClients.length + 1)/2}` : 'md:grid-cols-5'} grid-cols-2 gap-0 md:px-20 px-0 py-10 mx-auto`}>
-                {allClients.map((client: Client, index: number) => (
+            <div className={`grid ${clients.length <= 10 ? clients.length % 2 === 0 ? `md:grid-cols-${clients.length/2}` : `md:grid-cols-${(clients.length + 1)/2}` : 'md:grid-cols-5'} grid-cols-2 gap-0 md:px-20 px-0 py-10 mx-auto`}>
+                {loading ? (
+                    Array.from({ length: 6 }).map((_, index) => (
+                        <SkeletonPartnerCard key={index} />
+                    ))
+                ) : (
+                clients.map((client: Client, index: number) => (
                     <div
                         key={client._id}
                         className={`md:w-[250px] w-[130px] md:h-[105px] h-[80px] flex items-center justify-center ${
@@ -47,9 +53,17 @@ const Partners: React.FC = () => {
                             />
                         </div>
                     </div>
-                ))}
+                )))}
             </div>
         </section>
+    );
+};
+
+const SkeletonPartnerCard: React.FC = () => {
+    return (
+      <div className="md:w-[250px] w-[130px] md:h-[105px] h-[80px] flex items-center justify-center bg-gray-300 animate-pulse rounded-lg space-x-2">
+        <div className="relative md:w-[90px] w-[95px] md:h-[110px] h-[65px] bg-gray-400"></div>
+      </div>
     );
 };
 

@@ -20,7 +20,7 @@ import { truncateDetails } from '@/utils';
 
 const Testimonial: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const { testimonials } = useSelector((state: any) => state.testimonials);
+    const { testimonials, loading } = useSelector((state: any) => state.testimonials);
     useEffect(() => {
         dispatch(getAllTestimonials());
     },[dispatch]);
@@ -69,7 +69,14 @@ const Testimonial: React.FC = () => {
                   },
               }}
             >
-              {testimonials.map((testimonial: Testimonial, index: number) => (
+              {loading ? (
+                    Array.from({ length: 3 }).map((_, index) => (
+                        <SwiperSlide key={index}>
+                            <SkeletonTestimonialCard />
+                        </SwiperSlide>
+                    ))
+              ) : (
+              testimonials.map((testimonial: Testimonial, index: number) => (
                 <SwiperSlide key={index}>
                   <div className='p-5 bg-white rounded-xl h-full'>
                     {/* Header */}
@@ -105,12 +112,33 @@ const Testimonial: React.FC = () => {
                     </button>
                   </div>
                 </SwiperSlide>
-              ))}
+              )))}
             </Swiper>
           </div>
         </div>
     </div>
   );
 }
+const SkeletonTestimonialCard: React.FC = () => {
+  return (
+    <div className="p-5 bg-white rounded-xl h-full animate-pulse">
+      <div className="flex items-center mb-4">
+        <div className="w-12 h-12 mr-4 bg-gray-300 rounded-xl"></div>
+        <div>
+          <div className="flex text-black text-sm">
+            <div className="bg-gray-300 h-4 w-16 mr-1"></div>
+            <div className="bg-gray-300 h-4 w-24"></div>
+          </div>
+          <div className="bg-gray-300 h-4 w-32 mt-2"></div>
+        </div>
+      </div>
+      <div className="w-full flex md:flex-row justify-start flex-col mb-4 items-start">
+        <div className="w-[15%] md:text-2xl text-xl mb-5 md:mb-0 bg-gray-300 h-8"></div>
+        <div className="w-[85%] bg-gray-300 h-24"></div>
+      </div>
+      <div className="flex items-center bg-gray-300 h-10 w-32 rounded-xl"></div>
+    </div>
+  );
+};
 
 export default Testimonial;
