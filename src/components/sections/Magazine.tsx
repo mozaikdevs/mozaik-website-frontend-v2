@@ -37,7 +37,7 @@ const Magazine: React.FC = () => {
                     <p className="md:text-2xl text-xl text-white uppercase font-[700] md:text-start text-center">Interior Design Insights</p>
                 </div>
                 <div className='md:w-1/3 w-full'>
-                    <p className='text-[#D0D0D0] md:text-start text-center'>Read about the latest news, trends and updates on commercial interior design."</p>
+                    <p className='text-[#D0D0D0] md:text-start text-center'>Read about the latest news, trends and updates on commercial interior design.</p>
                 </div>
             </div>
 
