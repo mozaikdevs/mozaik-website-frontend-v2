@@ -121,24 +121,28 @@ const ProjectDetailsContent: React.FC = () => {
                                 }}
                             >
                                 <div className="absolute inset-0">
-                                    <img
-                                        src={project?.thumbnailBefore}
-                                        alt="Before"
-                                        className="w-full h-full grayscale"
-                                    />
-                                    <div className="absolute top-7 left-7 bg-white text-black px-5 py-2 rounded-xl redex font-bold">
-                                        BEFORE
-                                    </div>
+                                  <Image
+                                    src={project?.thumbnailBefore}
+                                    alt="Before"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="grayscale"
+                                  />
+                                  <div className="absolute top-7 left-7 bg-white text-black px-5 py-2 rounded-xl redex font-bold">
+                                    BEFORE
+                                  </div>
                                 </div>
                                 <div className="absolute inset-0 translate-x-full">
-                                    <img
-                                        src={project?.thumbnailAfter}
-                                        alt="After"
-                                        className="w-full h-full"
-                                    />
-                                    <div className="absolute top-7 left-7 bg-white text-black px-5 py-2 rounded-xl redex font-bold">
-                                        AFTER
-                                    </div>
+                                  <Image
+                                    src={project?.thumbnailAfter}
+                                    alt="Before"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="grayscale"
+                                  />
+                                  <div className="absolute top-7 left-7 bg-white text-black px-5 py-2 rounded-xl redex font-bold">
+                                      AFTER
+                                  </div>
                                 </div>
                             </div>
 
@@ -192,19 +196,57 @@ const ProjectDetailsContent: React.FC = () => {
                     </p>
                 </section>
                 <section className='md:p-0 p-5'>
-                    <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-                        <div className="flex flex-col gap-4">
-                            <Image src={project.images[0]} alt="Gallery Image 1" width={200} height={180} className="w-full h-full object-cover rounded-xl" />
-                            <Image src={project.images[1]} alt="Gallery Image 2" width={200} height={180} className="w-full h-full object-cover rounded-xl" />
-                        </div>
-                        <div className="flex flex-col gap-4">
-                            <Image src={project.images[2]} alt="Gallery Image 3" width={200} height={180} className="w-full h-full object-cover rounded-xl" />
-                            <Image src={project.images[3]} alt="Gallery Image 4" width={200} height={180} className="w-full h-full object-cover rounded-xl" />
-                        </div>
-                        <div className="flex">
-                            <Image src={project.images[4]} alt="Gallery Image 5" width={200} height={360} className="w-full h-full object-cover rounded-xl" />
-                        </div>
-                    </div>
+                <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
+                  <div className="flex flex-col gap-y-4">
+                      <div className="relative w-full h-[450px]">
+                          <Image 
+                              src={project.images[0]} 
+                              alt="Gallery Image 1" 
+                              layout="fill"
+                              quality={100}
+                              className="object-cover rounded-xl" 
+                          />
+                      </div>
+                      <div className="relative w-full h-[250px]">
+                          <Image 
+                              src={project.images[1]} 
+                              alt="Gallery Image 2" 
+                              layout="fill"
+                              quality={100}
+                              className="object-cover rounded-xl" 
+                          />
+                      </div>
+                  </div>
+                  <div className="flex flex-col gap-y-4">
+                      <div className="relative w-full h-[300px]">
+                          <Image 
+                              src={project.images[2]} 
+                              alt="Gallery Image 3" 
+                              layout="fill"
+                              quality={100}
+                              className="object-cover rounded-xl" 
+                          />
+                      </div>
+                      <div className="relative w-full h-[400px]">
+                        <Image 
+                          src={project.images[3]} 
+                          alt="Gallery Image 4" 
+                          layout="fill"
+                          quality={100}
+                          className="object-cover rounded-xl" 
+                        />
+                      </div>
+                  </div>
+                  <div className="relative w-full md:h-[716px] h-[300px]">
+                      <Image 
+                          src="/images/Reception opt 5 b (2) (1).jpg" 
+                          alt="Gallery Image 5" 
+                          layout="fill"
+                          quality={100}
+                          className="object-cover rounded-xl" 
+                      />
+                  </div>
+              </div>
                 </section>
                 <MoreProjects currentProjectId={projectId || ''} />
             </div>

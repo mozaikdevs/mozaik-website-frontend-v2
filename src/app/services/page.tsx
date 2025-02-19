@@ -12,7 +12,7 @@ const Services: React.FC = () => {
                     <div>
                         <div className='flex justify-start items-center mb-10'>
                             <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
-                            <h2 className="text-md font-bold text-center uppercase text-black redex">OUR sERVICES</h2>
+                            <h2 className="text-md font-bold text-center uppercase text-black redex">OUR SERVICES</h2>
                             <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                         </div>
                         <p className="text-2xl text-black uppercase font-[200] redex"><span className='font-[600]'>transforming </span>Spaces<span className='font-[700]'> with</span></p>
