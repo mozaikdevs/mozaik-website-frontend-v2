@@ -22,26 +22,26 @@ const About: React.FC = () => {
     return (
         <DefaultLayout>
             <div className='min-h-screen bg-white'>
-                <section className="flex justify-between items-end bg-[#FAFAFA] rounded-xl p-12 mx-16">
+                <section className="flex justify-between items-end bg-[#FAFAFA] rounded-xl p-12 md:mx-16 mx-5 md:flex-row flex-col">
                     <div>
                         <div className='flex justify-start items-center mb-10'>
                             <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
                             <h2 className="text-md font-bold text-center uppercase text-black redex">ABOUT US</h2>
                             <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                         </div>
-                        <p className="text-2xl text-black uppercase font-[700]">End-to-end turnkey </p>
-                        <p className="text-2xl text-black uppercase font-[700]">office design and build</p>
+                        <p className="md:text-2xl text-xl text-black uppercase font-[700]">End-to-end turnkey </p>
+                        <p className="md:text-2xl text-xl text-black uppercase font-[700]">office design and build</p>
                     </div>
-                    <div className='w-1/2'>
-                        <p className='text-[#4C4B4B]'>It is our mission to operate our business with care, honesty and integrity. We leverage all of this knowledge to act as trusted advisers to our clients.</p>
+                    <div className='md:w-1/2 w-full'>
+                        <p className='text-[#4C4B4B] md:mt-0 mt-4'>It is our mission to operate our business with care, honesty and integrity. We leverage all of this knowledge to act as trusted advisers to our clients.</p>
                     </div>
                 </section>
-                <section className="mt-12 mx-16">
+                <section className="mt-12 md:mx-16 mx-5">
                     <div className='flex flex-col justify-start items-center mb-10'>
                         <h2 className="text-md font-bold text-center uppercase text-black redex mb-5">WHY CHOOSE US</h2>
-                        <p className="w-1/2 mx-auto text-center text-xl text-black uppercase font-[700] mb-8">We maintain clear communication with you throughout the entire project, providing transparency and peace of mind every step of the way.</p>
+                        <p className="md:w-1/2 w-full mx-auto text-center md:text-xl text-lg text-black uppercase font-[700] mb-8">We maintain clear communication with you throughout the entire project, providing transparency and peace of mind every step of the way.</p>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 px-32">
+                    <div className="grid md:grid-cols-3 grid-cols-1 gap-4 md:px-32 px-0">
                         {reasons.map((reason, index) => (
                             <div
                                 key={index}
@@ -58,8 +58,8 @@ const About: React.FC = () => {
                         </Link>
                     </div>
                 </section>
-                <section className="w-full bg-[#FAFAFA] rounded-xl py-28 px-56 mt-12 flex items-center">
-                    <div className="w-1/2 h-[300px] rounded-xl relative">
+                <section className="w-full bg-[#FAFAFA] rounded-xl py-28 md:px-56 px-5 mt-12 flex items-center md:flex-row flex-col-reverse">
+                    <div className="md:w-1/2 w-full h-[300px] rounded-xl relative md:mt-0 mt-10">
                         <Image 
                             src="/images/8.png" 
                             alt="Description" 
@@ -67,7 +67,7 @@ const About: React.FC = () => {
                             fill
                         />
                     </div>
-                    <div className="w-1/2 pl-12">
+                    <div className="md:w-1/2 w-full md:pl-12 pl-0">
                         <div className='flex justify-start items-center mb-10'>
                             <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
                             <h2 className="text-md font-bold text-center uppercase text-black redex">our vision</h2>
@@ -77,8 +77,8 @@ const About: React.FC = () => {
                         <p className="text-sm text-[#4C4B4B]">We will continue to leverage on our many years of professional experience to consistently deliver exclusive design services that bring a complete satisfaction of our partners and client’s requirements.</p>
                     </div>
                 </section>
-                <section className="w-full rounded-xl py-28 px-56 flex flex-row-reverse items-center">
-                    <div className="w-1/2 h-[300px] rounded-xl relative">
+                <section className="w-full rounded-xl py-28 md:px-56 px-5 flex md:flex-row-reverse flex-col-reverse items-center">
+                    <div className="md:w-1/2 w-full h-[300px] md:mt-0 mt-10 rounded-xl relative">
                         <Image 
                             src="/images/9.png" 
                             alt="Description" 
@@ -86,7 +86,7 @@ const About: React.FC = () => {
                             fill
                         />
                     </div>
-                    <div className="w-1/2 pr-12">
+                    <div className="md:w-1/2 w-full pr-12">
                         <div className='flex justify-start items-center mb-10'>
                             <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
                             <h2 className="text-md font-bold text-center uppercase text-black redex">Our mission</h2>

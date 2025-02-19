@@ -15,8 +15,8 @@ const Services: React.FC = () => {
                             <h2 className="text-md font-bold text-center uppercase text-black redex">OUR SERVICES</h2>
                             <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                         </div>
-                        <p className="md:text-2xl md:text-xl text-lg text-black uppercase font-[200] redex"><span className='font-[600]'>transforming </span>Spaces<span className='font-[700]'> with</span></p>
-                        <p className="md:text-2xl md:text-xl text-lg text-black uppercase font-[200] redex">Innovative Design<span className='font-[600]'>Solutionspro</span></p>
+                        <p className="md:text-2xl text-xl text-black uppercase font-[200] redex"><span className='font-[600]'>transforming </span>Spaces<span className='font-[700]'> with</span></p>
+                        <p className="md:text-2xl text-xl text-black uppercase font-[200] redex">Innovative Design<span className='font-[600]'>Solutionspro</span></p>
                     </div>
                     <div className='md:w-1/2 w-full'>
                         <p className='text-[#4C4B4B] md:text-base text-sm'>We provide comprehensive interior design services, including Design Development & Space Planning, Finishing & Partitioning Work, and Furniture & Decorations, to transform spaces with style and innovation.
