@@ -198,7 +198,7 @@ const ProjectDetailsContent: React.FC = () => {
                 <section className='md:p-0 p-5'>
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
                   <div className="flex flex-col gap-y-4">
-                      <div className="relative w-full h-[450px]">
+                      <div className="relative w-full md:h-[450px] h-[300px]">
                           <Image 
                               src={project.images[0]} 
                               alt="Gallery Image 1" 
@@ -207,7 +207,7 @@ const ProjectDetailsContent: React.FC = () => {
                               className="object-cover rounded-xl" 
                           />
                       </div>
-                      <div className="relative w-full h-[250px]">
+                      <div className="relative w-full md:h-[250px] h-[300px]">
                           <Image 
                               src={project.images[1]} 
                               alt="Gallery Image 2" 
@@ -218,7 +218,7 @@ const ProjectDetailsContent: React.FC = () => {
                       </div>
                   </div>
                   <div className="flex flex-col gap-y-4">
-                      <div className="relative w-full h-[300px]">
+                      <div className="relative w-full md:h-[300px] h-[300px]">
                           <Image 
                               src={project.images[2]} 
                               alt="Gallery Image 3" 
@@ -227,7 +227,7 @@ const ProjectDetailsContent: React.FC = () => {
                               className="object-cover rounded-xl" 
                           />
                       </div>
-                      <div className="relative w-full h-[400px]">
+                      <div className="relative w-full md:h-[400px] h-[300px]">
                         <Image 
                           src={project.images[3]} 
                           alt="Gallery Image 4" 

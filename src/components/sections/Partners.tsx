@@ -43,7 +43,7 @@ const Partners: React.FC = () => {
                             (index + 1) % 2 !== 0 ? 'bg-white rounded-lg' : ''
                         }`}
                     >
-                        <div className="relative md:w-[110px] w-[95px] md:h-[110px] h-[95px]">
+                        <div className="relative md:w-[150px] w-[95px] md:h-[150px] h-[95px]">
                             <Image
                                 src={client.logo}
                                 alt={client.name}
