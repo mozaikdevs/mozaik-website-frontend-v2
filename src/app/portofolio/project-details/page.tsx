@@ -93,7 +93,7 @@ const ProjectDetailsContent: React.FC = () => {
       }
 
     return (
-        <div className='bg-[#141111] min-h-screen py-8 md:px-20 px:0'>
+        <div className='bg-[#141111] min-h-screen py-8 md:px-20 px-0'>
             <section className='relative'>
                 <div className="flex md:rounded-xl rounded-none md:h-[400px] md:flex-row flex-col">
                     {/* Desktop View */}
@@ -119,26 +119,30 @@ const ProjectDetailsContent: React.FC = () => {
                                 transform: `translateX(${showAfter ? '-100%' : '0'})`
                             }}
                         >
-                            <div className="absolute inset-0">
-                                <img
-                                    src={project?.thumbnailBefore}
-                                    alt="Before"
-                                    className="w-full h-full grayscale"
-                                />
-                                <div className="absolute top-7 left-7 bg-white text-black px-5 py-2 rounded-xl redex font-bold">
-                                    BEFORE
-                                </div>
+                          <div className="absolute inset-0">
+                            <Image
+                              src={project?.thumbnailBefore}
+                              alt="Before"
+                              layout="fill"
+                              objectFit="cover"
+                              className="grayscale"
+                            />
+                            <div className="absolute top-7 left-7 bg-white text-black px-5 py-2 rounded-xl redex font-bold">
+                                BEFORE
                             </div>
-                            <div className="absolute inset-0 translate-x-full">
-                                <img
-                                    src={project?.thumbnailAfter}
-                                    alt="After"
-                                    className="w-full h-full"
-                                />
-                                <div className="absolute top-7 left-7 bg-white text-black px-5 py-2 rounded-xl redex font-bold">
-                                    AFTER
-                                </div>
+                          </div>
+                          <div className="absolute inset-0 translate-x-full">
+                            <Image
+                              src={project?.thumbnailAfter}
+                              alt="Before"
+                              layout="fill"
+                              objectFit="cover"
+                              className="grayscale"
+                            />
+                            <div className="absolute top-7 left-7 bg-white text-black px-5 py-2 rounded-xl redex font-bold">
+                              AFTER
                             </div>
+                          </div>
                         </div>
 
                         {/* Navigation Arrows */}
@@ -190,20 +194,58 @@ const ProjectDetailsContent: React.FC = () => {
                     {project?.description}
                 </p>
             </section>
-            <section className=''>
-                <div className="grid md:grid-cols-3 grid-cols-1 gap-4 md:px-0 px-5">
-                    <div className="flex flex-col gap-4">
-                        <Image src={project.images[0]} alt="Gallery Image 1" width={200} height={200} className="w-full h-full object-cover rounded-xl" />
-                        <Image src={project.images[1]} alt="Gallery Image 2" width={200} height={200} className="w-full h-full object-cover rounded-xl" />
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <Image src={project.images[2]} alt="Gallery Image 3" width={200} height={200} className="w-full h-full object-cover rounded-xl" />
-                        <Image src={project.images[3]} alt="Gallery Image 4" width={200} height={200} className="w-full h-full object-cover rounded-xl" />
-                    </div>
-                    <div className="flex">
-                        <Image src={project.images[4]} alt="Gallery Image 5" width={200} height={400} className="w-full h-full object-cover rounded-xl" />
-                    </div>
-                </div>
+            <section className='md:p-0 p-5'>
+                <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
+                  <div className="flex flex-col gap-y-4">
+                      <div className="relative w-full md:h-[450px] h-[300px]">
+                          <Image 
+                              src={project.images[0]} 
+                              alt="Gallery Image 1" 
+                              layout="fill"
+                              quality={100}
+                              className="object-cover rounded-xl" 
+                          />
+                      </div>
+                      <div className="relative w-full md:h-[250px] h-[300px]">
+                          <Image 
+                              src={project.images[1]} 
+                              alt="Gallery Image 2" 
+                              layout="fill"
+                              quality={100}
+                              className="object-cover rounded-xl" 
+                          />
+                      </div>
+                  </div>
+                  <div className="flex flex-col gap-y-4">
+                      <div className="relative w-full md:h-[300px] h-[300px]">
+                          <Image 
+                              src={project.images[2]} 
+                              alt="Gallery Image 3" 
+                              layout="fill"
+                              quality={100}
+                              className="object-cover rounded-xl" 
+                          />
+                      </div>
+                      <div className="relative w-full md:h-[400px] h-[300px]">
+                        <Image 
+                          src={project.images[3]} 
+                          alt="Gallery Image 4" 
+                          layout="fill"
+                          quality={100}
+                          className="object-cover rounded-xl" 
+                        />
+                      </div>
+                  </div>
+                  <div className="relative w-full md:h-[716px] h-[300px]">
+                      <Image 
+                          src="/images/Reception opt 5 b (2) (1).jpg" 
+                          alt="Gallery Image 5" 
+                          layout="fill"
+                          quality={100}
+                          className="object-cover rounded-xl" 
+                      />
+                  </div>
+              </div>
             </section>
         </div>
     );
