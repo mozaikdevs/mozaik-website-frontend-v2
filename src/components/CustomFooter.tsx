@@ -1,9 +1,56 @@
+'use client'
+import { AppDispatch } from '@/redux/store';
+import { submitContactForm, submitPortofolioContactForm } from '@/services/client';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
 
 const CustomFooter: React.FC = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const [loading, setLoading] = useState(false);
+    const initialState = {
+        name: '',
+        email: '',
+        message: '',
+        topic: 'Portofolio',
+    };
+    const [formData, setFormData] = useState(initialState);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        
+        e.preventDefault();
+        setLoading(true);
+        if(!formData.name || !formData.email || !formData.message){
+            setLoading(false);
+            if(!formData.name) return toast.error('Name is required');
+            if(!formData.email) return toast.error('Email is required');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailRegex.test(formData.email)) return toast.error('Invalid email address');
+            if(!formData.message) return toast.error('Message is required');
+        }
+        try {
+            await dispatch(submitPortofolioContactForm(formData)).unwrap();
+            toast.success('Message sent successfully!');
+            setFormData(initialState);
+        } catch (error) {
+            if(error){
+                toast.error('Failed to send message. Please try again.');
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
+    };
     return (
         <footer id="footer" className="w-full bg-black text-white md:p-20 p-5">
+            <ToastContainer/>
             <div className='w-full flex justify-between md:flex-row flex-col'>
                 <div className='md:w-[40%] w-full'>
                     <h1 className='w-2/3 md:text-5xl text-3xl redex font-bold'>WHAT <span className='font-normal'>WE DO</span> FOR YOU</h1>
@@ -21,37 +68,41 @@ const CustomFooter: React.FC = () => {
                     </div>
                 </div>
                 <div className='md:w-[40%] w-full'>
-                    <h1 className='text-2xl redex'>Lets work together</h1>
-                    <form className='mt-5'>
+                    <h1 className='text-2xl redex'>Let's work together</h1>
+                    <form className='mt-5' onSubmit={handleSubmit}>
                         <div className='flex justify-between md:flex-row flex-col'>
                             <input 
                                 type="text" 
-                                name="" 
-                                id=""
-                                placeholder='Enter your full  name' 
+                                name="name" 
+                                value={formData.name}
+                                onChange={handleChange}
+                                placeholder='Enter your full name' 
                                 className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 md:mb-0 mb-3'
                             />
                             <input 
-                                type="text" 
-                                name="" 
-                                id=""
+                                type="email" 
+                                name="email" 
+                                value={formData.email}
+                                onChange={handleChange}
                                 placeholder='Enter your Email' 
                                 className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3'
                             />
                         </div>
                         <textarea 
-                            name="" 
-                            id="" 
-                            placeholder='Enter your  message'
+                            name="message" 
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder='Enter your message'
                             rows={4}
                             className='w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 mt-3'
                         >
                         </textarea>
                         <button 
                             type='submit'
-                            className='w-full text-sm bg-white text-black uppercase font-[300] crisis py-3 mt-3'
+                            disabled={loading}
+                            className='w-full text-sm bg-white text-black uppercase font-[300] crisis py-3 mt-3 disabled:opacity-50'
                         >
-                            Send Message
+                            {loading ? 'Sending...' : 'Send Message'}
                         </button>
                     </form>
                 </div>
