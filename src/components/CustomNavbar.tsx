@@ -25,9 +25,9 @@ const CustomNavbar: React.FC = () => {
                     <Link href="/about" className="hover:text-gray-400">About</Link>
                     <Link href="/" className="hover:text-gray-400">Website</Link>
                 </div>
-                <button className="flex justify-between bg-[#FFFFFF] hover:bg-[#ae7c18] text-black font-[600] py-3 px-8 rounded-[8px] text-sm">
+                <Link href="#footer" className="flex justify-between bg-[#FFFFFF] hover:bg-[#ae7c18] text-black hover:text-white font-[600] py-3 px-8 rounded-[8px] text-sm">
                     Reach to us
-                </button>
+                </Link>
             </div>
             <div className="md:hidden flex items-center">
                 <button onClick={toggleMenu} className="text-white">
@@ -48,9 +48,9 @@ const CustomNavbar: React.FC = () => {
                         <Link href="/services" className="hover:text-gray-400 font-[500]">Services</Link>
                         <Link href="/about" className="hover:text-gray-400 font-[500]">About</Link>
                         <Link href="/" className="hover:text-gray-400 font-[500]">Website</Link>
-                        <button className="w-2/3 flex justify-center bg-[#FFFFFF] hover:bg-[#ae7c18] text-black font-[600] py-3 px-5 rounded-[8px] mt-10 mx-auto">
+                        <Link href="#footer" onClick={() => setIsMenuOpen(false)} className="w-2/3 flex justify-center bg-[#FFFFFF] hover:bg-[#ae7c18] text-black hover:text-white font-[600] py-3 px-5 rounded-[8px] mt-10 mx-auto">
                             Reach to us
-                        </button>
+                        </Link>
                     </div>
                 </div>
             )}

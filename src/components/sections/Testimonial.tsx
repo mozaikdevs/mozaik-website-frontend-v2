@@ -110,7 +110,7 @@ const Testimonial: React.FC = () => {
                           <h2 className="mr-1">{testimonial.name.split(' ')[0]}</h2>
                           <h2 className="font-semibold uppercase">{testimonial.name.split(' ')[1]}</h2>
                         </div>
-                        <p className="text-gray-600 text-sm">{testimonial.employeePosition}</p>
+                        <p className="text-gray-600 text-sm">{testimonial.employeePosition} - {testimonial.clientId.name}</p> 
                       </div>
                     </div>
 
@@ -157,7 +157,7 @@ const Testimonial: React.FC = () => {
                         <h2 className="mr-1">{selectedTestimonial.name.split(' ')[0]}</h2>
                         <h2 className="font-semibold uppercase">{selectedTestimonial.name.split(' ')[1]}</h2>
                       </div>
-                      <p className="text-gray-600 text-sm">{selectedTestimonial.employeePosition}</p>
+                      <p className="text-gray-600 text-sm">{selectedTestimonial.employeePosition} - {selectedTestimonial.clientId.name}</p>
                     </div>
                   </div>
 

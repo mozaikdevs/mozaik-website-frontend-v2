@@ -3,7 +3,7 @@ import React from 'react';
 
 const CustomFooter: React.FC = () => {
     return (
-        <footer className="w-full bg-black text-white md:p-20 p-5">
+        <footer id="footer" className="w-full bg-black text-white md:p-20 p-5">
             <div className='w-full flex justify-between md:flex-row flex-col'>
                 <div className='md:w-[40%] w-full'>
                     <h1 className='w-2/3 md:text-5xl text-3xl redex font-bold'>WHAT <span className='font-normal'>WE DO</span> FOR YOU</h1>
