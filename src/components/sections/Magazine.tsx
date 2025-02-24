@@ -61,6 +61,9 @@ const Magazine: React.FC = () => {
                     1024: {
                         slidesPerView: 3,
                     },
+                    1536: {
+                        slidesPerView: 4,
+                    },
                 }}
             >
                 {loading ? (

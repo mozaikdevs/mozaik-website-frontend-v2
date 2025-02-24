@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
         }));
     };
     return (
-        <section className="flex md:flex-row flex-col-reverse justify-between md:px-32 md:py-32 px-5 py-10">
+        <section className="flex md:flex-row flex-col-reverse justify-between md:px-32 md:py-32 px-5 py-10 2xl:px-96">
             <ToastContainer />
             {/* First Element */}
             <div className="relative md:w-2/5 w-full bg-[#143755] md:mt-0 mt-16 bg-cover bg-center rounded-2xl p-10 text-white z-10" style={{ backgroundImage: "url('/images/bg-5.png')", backgroundSize: '250%', backgroundPosition: 'center' }}>

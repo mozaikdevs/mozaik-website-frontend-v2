@@ -6,7 +6,7 @@ import { FaFacebookF } from 'react-icons/fa6';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="flex flex-col py-10 px-5 md:px-16 bg-[#143755]">
+        <footer className="flex flex-col py-10 px-5 md:px-16 bg-[#143755] 2xl:px-96">
             <div className="flex flex-col md:flex-row justify-between mb-5">
                 <div>
                     <p className="text-xs font-[800] mb-3">GET A PROJECT?</p>

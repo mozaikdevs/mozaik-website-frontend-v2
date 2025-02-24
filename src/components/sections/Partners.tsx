@@ -27,7 +27,7 @@ const Partners: React.FC = () => {
                     <p className="w-full md:text-2xl text-xl text-black uppercase text-center md:text-start mb-8 md:mb-0"><span className='font-[700]'>DIFFERENT</span> PARTNERS</p>
                 </div>
                 <div className='md:w-1/2 w-full'>
-                    <p className='text-[#4C4B4B] md:text-start text-center'>We are passionate about delivering cutting-edge digital innovation, achieving remarkable results that we are proud of."</p>
+                    <p className='text-[#4C4B4B] md:text-start text-center 2xl:text-lg'>We are passionate about delivering cutting-edge digital innovation, achieving remarkable results that we are proud of.</p>
                 </div>
             </div>
             <div className={`grid ${clients.length <= 10 ? clients.length % 2 === 0 ? `md:grid-cols-${clients.length/2}` : `md:grid-cols-${(clients.length + 1)/2}` : 'md:grid-cols-5'} grid-cols-2 gap-0 md:px-20 px-0 py-10 mx-auto`}>

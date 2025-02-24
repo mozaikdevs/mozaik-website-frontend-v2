@@ -80,7 +80,10 @@ const Testimonial: React.FC = () => {
                       slidesPerView: 2,
                   },
                   1024: {
-                      slidesPerView: 2.5,
+                    slidesPerView: 2.5,
+                  },
+                  1536: {
+                    slidesPerView: 4,
                   },
               }}
             >

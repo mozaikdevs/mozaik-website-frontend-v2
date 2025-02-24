@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
 
     return (
         <section className="">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 2xl:max-w-[1800px]">
                 <div className='flex justify-center items-center mb-10'>
                     <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
                     <h2 className="text-md font-bold text-center uppercase text-black">Our Projects</h2>
@@ -44,17 +44,17 @@ const Projects: React.FC = () => {
                         {projects.map((project:Project, index:number) => (
                             <div 
                                 key={project._id}
-                                className={`flex items-end ${index % 4 === 0 || index % 4 === 3 ? 'md:col-span-4' : 'md:col-span-3'} bg-cover bg-center bg-black bg-opacity-50 md:h-80 h-64 rounded-xl cursor-pointer`}
+                                className={`flex items-end ${index % 4 === 0 || index % 4 === 3 ? 'md:col-span-4' : 'md:col-span-3'} bg-cover bg-center bg-black bg-opacity-50 md:h-80 h-64 2xl:h-96 rounded-xl cursor-pointer`}
                                 style={{ backgroundImage: `url(${project.thumbnailAfter})` }}
                                 onClick={() => handleProjectClick(project._id)}
                             >
                                 <div className="md:w-3/4 w-full h-20 m-5 py-3 px-5 flex flex-col justify-center bg-black bg-opacity-50 backdrop-blur-sm rounded-xl cursor-pointer">
                                     <div className="flex justify-between text-white">
-                                        <span className='uppercase font-medium text-sm text-white'>{project.name}</span>
-                                        <span className='redex text-sm font-[300]'>{project.areaSize} {project.areaUnit}</span>
+                                        <span className='uppercase font-medium text-sm text-white 2xl:text-base'>{project.name}</span>
+                                        <span className='redex text-sm font-[300] 2xl:text-base'>{project.areaSize} {project.areaUnit}</span>
                                     </div>
                                     <div className="text-white mt-2">
-                                        <p className='text-white text-xs font-[300]'> <span className='text-[#9E9E9E] mr-2'>Client</span>{project.clientId.name}</p>
+                                        <p className='text-white text-xs font-[300] 2xl:text-sm'> <span className='text-[#9E9E9E] mr-2'>Client</span>{project.clientId.name}</p>
                                     </div>
                                 </div>
                             </div>
