@@ -19,14 +19,14 @@ import { formatDate } from '@/utils';
 
 const Magazine: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const { blogs } = useSelector((state: any) => state.blogs);
+    const { blogs, loading } = useSelector((state: any) => state.blogs);
 
     useEffect(() => {
         dispatch(getAllBlogs());
     }, [dispatch]);
 
     return (
-        <section className="py-20 md:px-16 px-5 bg-[#143755]">
+        <section className="py-20 md:px-16 px-5 bg-[#143755]" style={{ backgroundImage: "url('/images/bg-5.png')",backgroundSize:"100%", backgroundPosition: '50%' }}>
             <div className="flex md:flex-row flex-col md:justify-between justify-center items-start">
                 <div>
                     <div className='flex md:justify-start justify-center items-center mb-5'>
@@ -37,7 +37,7 @@ const Magazine: React.FC = () => {
                     <p className="md:text-2xl text-xl text-white uppercase font-[700] md:text-start text-center">Interior Design Insights</p>
                 </div>
                 <div className='md:w-1/3 w-full'>
-                    <p className='text-[#D0D0D0] md:text-start text-center'>Read about the latest news, trends and updates on commercial interior design."</p>
+                    <p className='text-[#D0D0D0] md:text-start text-center'>Read about the latest news, trends and updates on commercial interior design.</p>
                 </div>
             </div>
 
@@ -61,9 +61,19 @@ const Magazine: React.FC = () => {
                     1024: {
                         slidesPerView: 3,
                     },
+                    1536: {
+                        slidesPerView: 4,
+                    },
                 }}
             >
-                {blogs.map((blog: Blog) => (
+                {loading ? (
+                Array.from({ length: 3 }).map((_, index) => (
+                    <SwiperSlide key={index}>
+                    <SkeletonCard />
+                    </SwiperSlide>
+                ))
+                ) : (
+                blogs.map((blog: Blog) => (
                     <SwiperSlide key={blog._id}>
                         <div className="px-4">
                             <div className="relative md:w-[90%] w-full md:h-80 h-64 bg-gray-300 rounded-lg mb-4">
@@ -92,9 +102,24 @@ const Magazine: React.FC = () => {
                             </Link>
                         </div>
                     </SwiperSlide>
-                ))}
+                )))}
             </Swiper>
         </section>
+    );
+};
+
+const SkeletonCard: React.FC = () => {
+    return (
+      <div className="px-4 animate-pulse">
+        <div className="relative md:w-[90%] w-full md:h-80 h-64 bg-gray-300 rounded-lg mb-4"></div>
+        <div className="flex text-sm text-[#B8B8B8]">
+          <div className="bg-gray-300 h-4 w-1/3 mr-2"></div>
+          <div className="bg-gray-300 h-4 w-1/4"></div>
+        </div>
+        <div className="bg-gray-300 h-6 w-3/4 mb-4 mt-2"></div>
+        <div className="bg-gray-300 h-4 w-1/2 mb-2"></div>
+        <div className="bg-gray-300 h-4 w-1/3"></div>
+      </div>
     );
 };
 

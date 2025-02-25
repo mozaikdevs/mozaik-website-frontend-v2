@@ -23,7 +23,15 @@ const Contact: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        
+        if(!formData.name || !formData.email || !formData.phone || !formData.topic || !formData.message){
+            setLoading(false);
+            if(!formData.name) return toast.error('Name is required');
+            if(!formData.email) return toast.error('Email is required');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailRegex.test(formData.email)) return toast.error('Invalid email address');
+            if(!formData.topic) return toast.error('Topic is required');
+            if(!formData.message) return toast.error('Message is required');
+        }
         try {
             await dispatch(submitContactForm(formData)).unwrap();
             toast.success('Message sent successfully!');
@@ -44,10 +52,10 @@ const Contact: React.FC = () => {
         }));
     };
     return (
-        <section className="flex md:flex-row flex-col-reverse justify-between md:px-32 md:py-32 px-5 py-10">
+        <section className="flex md:flex-row flex-col-reverse justify-between md:px-32 md:py-32 px-5 py-10 2xl:px-96">
             <ToastContainer />
             {/* First Element */}
-            <div className="relative md:w-2/5 w-full md:mt-0 mt-16 bg-[#143755] rounded-2xl p-10 text-white z-10">
+            <div className="relative md:w-2/5 w-full bg-[#143755] md:mt-0 mt-16 bg-cover bg-center rounded-2xl p-10 text-white z-10" style={{ backgroundImage: "url('/images/bg-5.png')", backgroundSize: '250%', backgroundPosition: 'center' }}>
                 <div className='flex justify-start items-center'>
                     <div className='h-4 w-2 bg-[#E09F1F] mr-2'></div>
                     <h2 className="text-sm font-bold text-center uppercase text-[#E09F1F]">Reach out to us</h2>
@@ -109,7 +117,7 @@ const Contact: React.FC = () => {
                         layout="fill" 
                     />
                 </div>
-                <div className="absolute inset-0 bg-[#143755] rounded-2xl z-[-1]"></div>
+                <div className="absolute inset-0 rounded-2xl z-[-1]"></div>
             </div>
 
             {/* Second Element */}
@@ -131,7 +139,7 @@ const Contact: React.FC = () => {
                         <div className='md:w-1/2 w-full flex flex-col md:mb-0 mb-3'>
                             <label className='text-[#535353] text-sm mb-2'>Email</label>
                             <input 
-                                type="email" 
+                                type="text" 
                                 name="email"
                                 value={formData.email}
                                 placeholder="Enter  your email" 
@@ -159,7 +167,6 @@ const Contact: React.FC = () => {
                                 value={formData.topic}
                                 onChange={handleChange}
                                 className="w-full bg-[#F9F9F9] text-sm md:h-[48px] h-[40px] text-[#AFAFAF] px-4 border-none rounded"
-                                required
                                 >
                                 <option value="" disabled>Select topic</option>
                                 <option value="general">General Inquiry</option>

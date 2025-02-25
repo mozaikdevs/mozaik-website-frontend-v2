@@ -1,3 +1,4 @@
+'use client'
 import { Project } from '@/interfaces/project';
 import { truncateDetails } from '@/utils';
 import Image from 'next/image';
@@ -7,6 +8,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 
 interface AllProjectsProps {
     projects: Project[];
+    loading: boolean;
 }
 
 // Add size range constants
@@ -18,7 +20,7 @@ const SIZE_RANGES = {
   
   type SizeRangeKey = keyof typeof SIZE_RANGES;
 
-const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
+const AllProjects: React.FC<AllProjectsProps> = ({ projects, loading }) => {
     const [filteredProjects, setFilteredProjects] = useState(projects);
     const router = useRouter();
     const [visibleCount, setVisibleCount] = useState(3);
@@ -99,7 +101,12 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                     </select>
                 </div>
             </div>
-            {projectsToShow.map((project, index) => (
+            {loading ? (
+                Array.from({ length: 3 }).map((_, index) => (
+                <SkeletonProjectCard key={index} />
+                ))
+            ) : (
+            projectsToShow.map((project, index) => (
                 <div 
                     key={index} 
                     className="w-full flex space-between items-center mb-20 cursor-pointer bg-[#FBFBFB] rounded-xl p-5 md:flex-row flex-col"
@@ -131,7 +138,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                         </button>
                     </div>
                 </div>
-            ))}
+            )))}
             {hasMore && (
                 <button 
                     onClick={loadMore}
@@ -149,6 +156,25 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
             )}
 
         </div>
+    );
+};
+
+const SkeletonProjectCard: React.FC = () => {
+    return (
+      <div className="w-full flex space-between items-center mb-20 cursor-pointer bg-[#FBFBFB] rounded-xl p-5 md:flex-row flex-col animate-pulse">
+        <div className="md:w-[45%] w-full md:h-[300px] h-[230px] relative rounded-xl md:mb-0 mb-10 bg-gray-300"></div>
+        <div className="md:w-[45%] w-full ml-[5%]">
+          <div className="flex justify-between">
+            <span className="w-1/2 bg-gray-300 h-6 rounded"></span>
+            <span className='bg-gray-300 h-6 w-1/4 rounded'></span>
+          </div>
+          <div className="mt-3 mb-5">
+            <p className='bg-gray-300 h-4 w-3/4 rounded'></p>
+          </div>
+          <p className='bg-gray-300 h-24 rounded'></p>
+          <div className="flex items-center justify-between bg-gray-300 h-10 w-32 rounded mt-5"></div>
+        </div>
+      </div>
     );
 };
 

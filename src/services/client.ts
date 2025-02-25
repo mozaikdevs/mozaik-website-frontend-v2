@@ -67,10 +67,32 @@ export const submitContactForm = createAsyncThunk(
   }
 );
 
+export const submitPortofolioContactForm = createAsyncThunk(
+  'footer/submitForm',
+  async (payload: PortofolioContactFormData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/contact-us`, {
+        ...payload,
+      });
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || 'Failed to submit form');
+    }
+  }
+);
+
 interface ContactFormData {
   name: string;
   email: string;
   phone: string;
+  topic: string;
+  message: string;
+}
+
+
+interface PortofolioContactFormData {
+  name: string;
+  email: string;
   topic: string;
   message: string;
 }

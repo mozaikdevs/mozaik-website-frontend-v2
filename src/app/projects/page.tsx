@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const ProjectsPage: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const allProjects = useSelector((state: RootState) => state.projects.projects);
+    const {projects, loading} = useSelector((state: RootState) => state.projects);
 
     useEffect(() => {
         dispatch(getAllProjects());
@@ -32,7 +32,7 @@ const ProjectsPage: React.FC = () => {
                         <p className='text-[#4C4B4B]'>From finishing and partitioning to bespoke furniture and decor, our team combines style and innovation to create unique, transformative environments that reflect our clients' vision and lifestyle."</p>
                     </div>
                 </section>
-                <AllProjects projects={allProjects}/>
+                <AllProjects projects={projects} loading={loading}/>
             </div>
         </DefaultLayout>
     );
