@@ -238,7 +238,7 @@ const ProjectDetailsContent: React.FC = () => {
                   </div>
                   <div className="relative w-full md:h-[716px] h-[300px]">
                       <Image 
-                          src="/images/Reception opt 5 b (2) (1).jpg" 
+                          src={project.images[4]} 
                           alt="Gallery Image 5" 
                           layout="fill"
                           quality={100}
