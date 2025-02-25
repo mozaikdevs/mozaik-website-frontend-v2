@@ -1,6 +1,6 @@
 'use client'
 import { AppDispatch } from '@/redux/store';
-import { submitContactForm, submitPortofolioContactForm } from '@/services/client';
+import { submitPortofolioContactForm } from '@/services/client';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
