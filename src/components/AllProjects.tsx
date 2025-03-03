@@ -109,7 +109,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects, loading }) => {
             projectsToShow.map((project, index) => (
                 <div 
                     key={index} 
-                    className="w-full flex space-between items-center mb-20 cursor-pointer bg-[#FBFBFB] rounded-xl p-5 md:flex-row flex-col"
+                    className="w-full flex space-between items-center mb-20 bg-[#FBFBFB] rounded-xl p-5 md:flex-row flex-col"
                 >
                     <div className="md:w-[45%] w-full md:h-[300px] h-[230px] relative rounded-xl md:mb-0 mb-10">
                         <Image 
