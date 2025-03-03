@@ -1,24 +1,40 @@
 'use client'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import { getAllClients } from '@/services/client';
 import Image from 'next/image';
 import { Client } from '@/interfaces/client';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const Partners: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const {clients, loading} = useSelector((state: any) => state.clients);
+    const { clients, loading } = useSelector((state: any) => state.clients);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         dispatch(getAllClients());
     }, [dispatch]);
 
+    const handleNext = () => {
+        if (currentIndex + 10 < clients.length) {
+            setCurrentIndex(currentIndex + 10);
+        }
+    };
+
+    const handlePrev = () => {
+        if (currentIndex - 10 >= 0) {
+            setCurrentIndex(currentIndex - 10);
+        }
+    };
+
+    const displayedClients = clients.slice(currentIndex, currentIndex + 10);
+
     return (
         <section className="flex flex-col space-y-8 bg-[#FAFAFA] md:py-20 py-5 md:px-16 px-5">
             <div className="w-full flex md:flex-row flex-col md:justify-between justify-center md:items-center items-center">
                 <div>
-                    <div className='flex md:justify-start  justify-center text-center items-center md:mb-10 mb-3'>
+                    <div className='flex md:justify-start justify-center text-center items-center md:mb-10 mb-3'>
                         <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
                         <h2 className="text-md font-bold text-center uppercase text-black">PARTNERS</h2>
                         <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
@@ -36,14 +52,15 @@ const Partners: React.FC = () => {
                         <SkeletonPartnerCard key={index} />
                     ))
                 ) : (
-                clients.map((client: Client, index: number) => (
+                    displayedClients.map((client: Client, index: number) => (
                     <div
                         key={client._id}
+                        title={client.name}
                         className={`md:w-[250px] w-[130px] md:h-[105px] h-[80px] flex items-center justify-center ${
                             (index + 1) % 2 !== 0 ? 'bg-white rounded-lg' : ''
                         }`}
                     >
-                        <div className="relative md:w-[150px] w-[95px] md:h-[150px] h-[95px]">
+                        <div title={client.name} className="relative md:w-[150px] w-[95px] md:h-[150px] h-[95px]">
                             <Image
                                 src={client.logo}
                                 alt={client.name}
@@ -54,6 +71,22 @@ const Partners: React.FC = () => {
                         </div>
                     </div>
                 )))}
+            </div>
+            <div className='flex justify-end space-x-5'>
+                <button 
+                    onClick={handlePrev} 
+                    className={`bg-white rounded-xl z-10 p-3 ${currentIndex - 10 < 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    disabled={currentIndex - 10 < 0}
+                >
+                    <MdKeyboardArrowLeft className="text-4xl text-black" />
+                </button>
+                <button 
+                    onClick={handleNext} 
+                    className={`bg-white rounded-xl z-10 p-3 ${currentIndex + 10 >= clients.length ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    disabled={currentIndex + 10 >= clients.length}
+                >
+                    <MdKeyboardArrowRight className="text-4xl text-black" />
+                </button>
             </div>
         </section>
     );
