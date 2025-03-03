@@ -29,7 +29,7 @@ export default function Home() {
         <section>
           <Partners/>
         </section>
-        <section>
+        <section id="blogs">
           <Magazine/>
         </section>
         <section>

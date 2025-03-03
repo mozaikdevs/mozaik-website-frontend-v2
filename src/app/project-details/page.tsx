@@ -9,6 +9,7 @@ import { useSearchParams } from 'next/navigation';
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { MdFullscreen, MdFullscreenExit } from 'react-icons/md';
 
 const ProjectDetails = () => {
     return (
@@ -16,7 +17,7 @@ const ProjectDetails = () => {
         <ProjectDetailsContent />
       </Suspense>
     );
-  };
+};
 
 const ProjectDetailsContent: React.FC = () => {
     const searchParams = useSearchParams();
@@ -26,11 +27,12 @@ const ProjectDetailsContent: React.FC = () => {
     const project = useSelector((state: any) => state.projects.projects.find((project: Project) => project._id === projectId));
     const [showAfter, setShowAfter] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+    const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
     useEffect(() => {
         dispatch(getAllProjects());
     },[dispatch]);
-
 
     useEffect(() => {
         if (project) {
@@ -38,60 +40,71 @@ const ProjectDetailsContent: React.FC = () => {
         }
     }, [project]);
 
+    const handleFullscreen = (src: string) => {
+        setFullscreenImage(src);
+        setIsFullscreen(true);
+    };
+
+    const exitFullscreen = () => {
+        setFullscreenImage(null);
+        setIsFullscreen(false);
+    };
+
     // Handle scroll
-  const handleScroll = (e: WheelEvent) => {
-    if (!containerRef.current) return;
-    
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-      if (e.deltaX > 0 && !showAfter) {
-        setShowAfter(true);
-      } else if (e.deltaX < 0 && showAfter) {
-        setShowAfter(false);
-      }
-    }
-  };
-
-  // Handle touch
-  const handleTouch = () => {
-    let startX: number;
-    
-    const touchStart = (e: TouchEvent) => {
-      startX = e.touches[0].clientX;
-    };
-
-    const touchEnd = (e: TouchEvent) => {
-      const diffX = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diffX) > 50) { // threshold of 50px
-        if (diffX > 0 && !showAfter) {
-          setShowAfter(true);
-        } else if (diffX < 0 && showAfter) {
-          setShowAfter(false);
+    const handleScroll = (e: WheelEvent) => {
+        if (!containerRef.current) return;
+        
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+            if (e.deltaX > 0 && !showAfter) {
+                setShowAfter(true);
+            } else if (e.deltaX < 0 && showAfter) {
+                setShowAfter(false);
+            }
         }
-      }
     };
 
-    return { touchStart, touchEnd };
-  };
+    // Handle touch
+    const handleTouch = () => {
+        let startX: number;
+        
+        const touchStart = (e: TouchEvent) => {
+            startX = e.touches[0].clientX;
+        };
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+        const touchEnd = (e: TouchEvent) => {
+            const diffX = startX - e.changedTouches[0].clientX;
+            if (Math.abs(diffX) > 50) { // threshold of 50px
+                if (diffX > 0 && !showAfter) {
+                    setShowAfter(true);
+                } else if (diffX < 0 && showAfter) {
+                    setShowAfter(false);
+                }
+            }
+        };
 
-    container.addEventListener('wheel', handleScroll);
-    const { touchStart, touchEnd } = handleTouch();
-    container.addEventListener('touchstart', touchStart);
-    container.addEventListener('touchend', touchEnd);
-
-    return () => {
-      container.removeEventListener('wheel', handleScroll);
-      container.removeEventListener('touchstart', touchStart);
-      container.removeEventListener('touchend', touchEnd);
+        return { touchStart, touchEnd };
     };
-  }, [showAfter]);
 
-  if (loading) {
-    return <SkeletonProjectDetails />;
-  }
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        container.addEventListener('wheel', handleScroll);
+        const { touchStart, touchEnd } = handleTouch();
+        container.addEventListener('touchstart', touchStart);
+        container.addEventListener('touchend', touchEnd);
+
+        return () => {
+            container.removeEventListener('wheel', handleScroll);
+            container.removeEventListener('touchstart', touchStart);
+            container.removeEventListener('touchend', touchEnd);
+        };
+    }, [showAfter]);
+
+    if (loading) {
+        return <SkeletonProjectDetails />;
+    }
+
     return (
         <DefaultLayout>
             <div className='bg-white min-h-screen py-8 md:px-20 px-0'>
@@ -206,6 +219,12 @@ const ProjectDetailsContent: React.FC = () => {
                               quality={100}
                               className="object-cover rounded-xl" 
                           />
+                          <button
+                              onClick={() => handleFullscreen(project.images[0])}
+                              className="absolute bottom-2 right-2 p-2 bg-black bg-opacity-30 text-white rounded-full"
+                          >
+                              <MdFullscreen size={20} />
+                          </button>
                       </div>
                       <div className="relative w-full md:h-[250px] h-[300px]">
                           <Image 
@@ -215,6 +234,12 @@ const ProjectDetailsContent: React.FC = () => {
                               quality={100}
                               className="object-cover rounded-xl" 
                           />
+                          <button
+                              onClick={() => handleFullscreen(project.images[1])}
+                              className="absolute bottom-2 right-2 p-2 bg-black bg-opacity-30 text-white rounded-full"
+                          >
+                              <MdFullscreen size={20} />
+                          </button>
                       </div>
                   </div>
                   <div className="flex flex-col gap-y-4">
@@ -226,6 +251,12 @@ const ProjectDetailsContent: React.FC = () => {
                               quality={100}
                               className="object-cover rounded-xl" 
                           />
+                          <button
+                              onClick={() => handleFullscreen(project.images[2])}
+                              className="absolute bottom-2 right-2 p-2 bg-black bg-opacity-30 text-white rounded-full"
+                          >
+                              <MdFullscreen size={20} />
+                          </button>
                       </div>
                       <div className="relative w-full md:h-[400px] h-[300px]">
                         <Image 
@@ -235,6 +266,12 @@ const ProjectDetailsContent: React.FC = () => {
                           quality={100}
                           className="object-cover rounded-xl" 
                         />
+                        <button
+                            onClick={() => handleFullscreen(project.images[3])}
+                            className="absolute bottom-2 right-2 p-2 bg-black bg-opacity-30 text-white rounded-full"
+                        >
+                            <MdFullscreen size={20} />
+                        </button>
                       </div>
                   </div>
                   <div className="relative w-full md:h-[716px] h-[300px]">
@@ -245,11 +282,35 @@ const ProjectDetailsContent: React.FC = () => {
                           quality={100}
                           className="object-cover rounded-xl" 
                       />
+                      <button
+                          onClick={() => handleFullscreen(project.images[4])}
+                          className="absolute bottom-2 right-2 p-2 bg-black bg-opacity-30 text-white rounded-full"
+                      >
+                          <MdFullscreen size={20} />
+                      </button>
                   </div>
               </div>
                 </section>
                 <MoreProjects currentProjectId={projectId || ''} />
             </div>
+
+            {isFullscreen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+                    <Image 
+                        src={fullscreenImage!} 
+                        alt="Fullscreen Image" 
+                        layout="fill" 
+                        objectFit="contain" 
+                        quality={100} 
+                    />
+                    <button
+                        onClick={exitFullscreen}
+                        className="absolute bottom-4 right-4 p-2 bg-white bg-opacity-50 text-black rounded-full"
+                    >
+                        <MdFullscreenExit size={24} />
+                    </button>
+                </div>
+            )}
         </DefaultLayout>
     );
 };

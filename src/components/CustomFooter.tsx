@@ -109,9 +109,9 @@ const CustomFooter: React.FC = () => {
             </div>
             <div className="container mx-auto text-center mt-20">
                 <div className='flex justify-center items-center uppercase redex text-base'>
-                    <Link href="#" target='_blank'>INSTAGRAM</Link>
-                    <Link href="#" target='_blank' className='mx-6'>LINKEDIN</Link>
-                    <Link href="#" target='_blank'>twitter</Link>
+                    <Link href="https://www.instagram.com/mozaikconcepts?igsh=NnNjMWFubzQ3enJj" target='_blank'>INSTAGRAM</Link>
+                    <Link href="https://www.linkedin.com/in/mozaik-concepts-ltd-83233b233" target='_blank' className='mx-6'>LINKEDIN</Link>
+                    <Link href="https://www.facebook.com/share/12EyZfR9gSe/?mibextid=wwXIfr" target='_blank'>FACEBOOK</Link>
                 </div>
                 <p className="md:w-[20%] w-1/2 mx-auto text-sm text-[#8F8F8F] redex font-[300] mt-5">&copy; {new Date().getFullYear()} All rights reserved by Mozaik concepts</p>
             </div>

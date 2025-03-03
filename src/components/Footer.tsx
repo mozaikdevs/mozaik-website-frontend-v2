@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
                         </div>
                         <div>
                             <Link href="/projects" className="block font-[200] text-[14px] mb-3">Projects</Link>
-                            <Link href="#link2" className="block font-[200] text-[14px] mb-3">Blog</Link>
+                            <Link href="/#blogs" className="block font-[200] text-[14px] mb-3">Blog</Link>
                             <Link href="/portofolio" className="block font-[200] text-[14px] mb-3">Portofolio</Link>
                         </div>
                     </div>
@@ -77,13 +77,13 @@ const Footer: React.FC = () => {
             <div className="flex md:flex-row flex-col-reverse justify-between items-center mt-10">
                 <p className='text-sm font-bold'>Mozaik Concepts © {new Date().getFullYear()}  All rights reserved</p>
                 <div className='flex mb-5 md:mb-0'>
-                    <a href="https://www.facebook.com" target='_blank' className="w-9 h-9 bg-white rounded-full flex items-center justify-center mr-3" rel="noopener noreferrer">
+                    <Link href="https://www.facebook.com/share/12EyZfR9gSe/?mibextid=wwXIfr" target='_blank' className="w-9 h-9 bg-white rounded-full flex items-center justify-center mr-3" rel="noopener noreferrer">
                         <FaFacebookF className='text-[#1B4D77] text-xl' />
-                    </a>
-                    <a href="#" className="w-9 h-9 bg-white rounded-full flex items-center justify-center mr-3">
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/mozaik-concepts-ltd-83233b233" target="_blank" className="w-9 h-9 bg-white rounded-full flex items-center justify-center mr-3">
                         <FaLinkedinIn className='text-[#1B4D77] text-xl' />
-                    </a>
-                    <a href="#" className="w-9 h-9 bg-white rounded-full flex items-center justify-center mr-3">
+                    </Link>
+                    <a href="https://www.instagram.com/mozaikconcepts?igsh=NnNjMWFubzQ3enJj" target='_blank' className="w-9 h-9 bg-white rounded-full flex items-center justify-center mr-3">
                         <FaInstagram className='text-[#1B4D77] text-xl' />
                     </a>
                 </div>
