@@ -113,7 +113,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects, loading }) => {
                 >
                     <div className="md:w-[45%] w-full md:h-[300px] h-[230px] relative rounded-xl md:mb-0 mb-10">
                         <Image 
-                            src='https://res.cloudinary.com/mozaikconcepts/image/upload/v1737702224/thg4isdant9qbnyhixbi.png'
+                            src={project.thumbnailAfter}
                             alt={project.name} 
                             fill
                             className='rounded-xl'

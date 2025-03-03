@@ -25,7 +25,7 @@ const ProjectsPage: React.FC = () => {
                             <h2 className="text-md font-bold text-center uppercase text-black redex">OUR PROJECTS</h2>
                             <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                         </div>
-                        <p className="md:text-2xl text-xl text-black uppercase font-[300]">Experience from <span className='font-[700]'>over 80+ </span>projects</p>
+                        <p className="md:text-2xl text-xl text-black uppercase font-[300]">Experience from <span className='font-[700]'>over {projects.length}+ </span>projects</p>
                         <p className="text-2xl text-black uppercase"><span className='font-[700]'>for your</span> company</p>
                     </div>
                     <div className='md:w-1/2 w-full md:mt-0 mt-5'>

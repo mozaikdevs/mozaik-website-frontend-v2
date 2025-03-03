@@ -57,7 +57,7 @@ const ProjectSection: React.FC = () => {
                         />
                     </div>
                     <h4 className='uppercase mt-4 font-semibold'>{project.name}</h4>
-                    <div className='grid md:flex md:justify-start mt-4 md:space-x-44 space-x-0 space-y-3 uppercase text-xs md:flex-row flex-col'>
+                    <div className='grid md:flex md:justify-start mt-4 md:space-x-44 space-x-0 md:space-y-0 space-y-3 uppercase text-xs md:flex-row flex-col'>
                         <div className='md:col-span-1'>
                             <p className='text-[#9E9E9E]'>Client</p>
                             <p className='text-white mt-3'>{project.clientId.name}</p>
