@@ -128,7 +128,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects, loading }) => {
                         <div className="text-white mt-3 mb-5">
                             <p className='text-black text-sm font-[300]'> <span className='text-[#9E9E9E] mr-2'>Client</span>{project.clientId.name}</p>
                         </div>
-                        <p className='text-[#474646] text-sm'>{truncateDetails(project.description,400)}</p>
+                        <p className='text-[#474646] text-sm text-justify'>{truncateDetails(project.description,400)}</p>
                         <button 
                             className="flex items-center justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[500] py-3 px-5 rounded-[8px] mt-5"
                             onClick={() => handleProjectClick(project._id)}

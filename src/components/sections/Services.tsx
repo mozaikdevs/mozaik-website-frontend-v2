@@ -10,7 +10,7 @@ const Services: React.FC = () => {
                     <h2 className="text-md font-bold text-center uppercase text-black">Our Services</h2>
                     <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                 </div>
-                <p className="md:text-3xl text-xl text-black text-center mb-8 md:px-[20%] font-[300] uppercase">We provide  <span className='font-[700]'>comprehensive interior design</span>  services, to transform spaces with <span className='font-[700]'>style and innovation.</span> .</p>
+                <p className="md:text-3xl text-xl text-black text-center mb-8 md:px-[20%] font-[300] uppercase">We provide  <span className='font-[700]'>comprehensive interior design</span>  services, to transform spaces with <span className='font-[700]'>style and innovation</span></p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:mt-24 mt-12">
                     <section className="bg-[#F9F9F9] p-6 rounded-lg">
                         <h3 className="text-md font-bold mb-2 uppercase text-black 2xl:text-xl">Design Development 

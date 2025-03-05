@@ -29,7 +29,7 @@ const ProjectsPage: React.FC = () => {
                         <p className="text-2xl text-black uppercase"><span className='font-[700]'>for your</span> company</p>
                     </div>
                     <div className='md:w-1/2 w-full md:mt-0 mt-5'>
-                        <p className='text-[#4C4B4B]'>From finishing and partitioning to bespoke furniture and decor, our team combines style and innovation to create unique, transformative environments that reflect our clients' vision and lifestyle."</p>
+                        <p className='text-[#4C4B4B] outfit'>From finishing and partitioning to bespoke furniture and decor, our team combines style and innovation to create unique, transformative environments that reflect our clients' vision and lifestyle."</p>
                     </div>
                 </section>
                 <AllProjects projects={projects} loading={loading}/>

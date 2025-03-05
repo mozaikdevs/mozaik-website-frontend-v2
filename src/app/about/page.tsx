@@ -33,7 +33,7 @@ const About: React.FC = () => {
                         <p className="md:text-2xl text-xl text-black uppercase font-[700]">office design and build</p>
                     </div>
                     <div className='md:w-1/2 w-full'>
-                        <p className='text-[#4C4B4B] md:mt-0 mt-4'>It is our mission to operate our business with care, honesty and integrity. We leverage all of this knowledge to act as trusted advisers to our clients.</p>
+                        <p className='text-black outfit md:mt-0 mt-4'>It is our mission to operate our business with care, honesty and integrity. We leverage all of this knowledge to act as trusted advisers to our clients.</p>
                     </div>
                 </section>
                 <section className="mt-12 md:mx-16 mx-5">
@@ -74,7 +74,7 @@ const About: React.FC = () => {
                             <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                         </div>                    
                         <h3 className="text-md font-bold text-black mb-5">Our vision is to be a reputable, sustainable, and desirable premier professional/commercial interior architecture firm of the African market place providing the state-of-the-art innovative designs and superior quality finishing.</h3>
-                        <p className="text-sm text-[#4C4B4B]">We will continue to leverage on our many years of professional experience to consistently deliver exclusive design services that bring a complete satisfaction of our partners and client’s requirements.</p>
+                        <p className="text-sm text-[#4C4B4B] outfit">We will continue to leverage on our many years of professional experience to consistently deliver exclusive design services that bring a complete satisfaction of our partners and client’s requirements.</p>
                     </div>
                 </section>
                 <section className="w-full rounded-xl py-28 md:px-56 px-5 flex md:flex-row-reverse flex-col-reverse items-center">
@@ -93,7 +93,7 @@ const About: React.FC = () => {
                             <div className='h-4 w-3 bg-[#E09F1F] ml-2'></div>
                         </div>                    
                         <h3 className="text-md font-bold text-black mb-5">Our mission is to create reward experience and value that combine functionality with high quality and innovation for our customers.</h3>
-                        <p className="text-sm text-[#4C4B4B]">We want every partner and client experience to be the talk of a life time. Also, to define the most sophisticated and superior standard of quality in every exterior and interior designs.</p>
+                        <p className="text-sm text-[#4C4B4B] outfit">We want every partner and client experience to be the talk of a life time. Also, to define the most sophisticated and superior standard of quality in every exterior and interior designs.</p>
                     </div>
                 </section>
             </div>

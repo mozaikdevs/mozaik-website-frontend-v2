@@ -35,8 +35,8 @@ const ProjectSection: React.FC = () => {
 
     return (
         <section className='bg-[#141111] px-8 py-14'>
-            <h2 className='text-sm text-center redex uppercase mb-5 font-semibold'>Project</h2>
-            <h3 className='md:w-1/4 w-full mx-auto text-2xl text-center uppercase font-[800] mb-20'>We design and carry out your projects</h3>
+            <h2 className='text-sm text-center redex uppercase mb-5 font-semibold text-white'>Project</h2>
+            <h3 className='md:w-1/4 w-full mx-auto text-2xl text-center uppercase font-[800] mb-20 text-white'>We design and carry out your projects</h3>
             {loading ? (
             Array.from({ length: 3 }).map((_, index) => (
                 <SkeletonProjectCard key={index} />
@@ -45,10 +45,10 @@ const ProjectSection: React.FC = () => {
             projectsToShow.map((project: Project) => (
                 <div 
                     key={project._id} 
-                    className='flex flex-col mx-auto md:w-1/2 w-full mb-20 cursor-pointer'
+                    className='flex flex-col mx-auto md:w-2/3 w-full mb-20 cursor-pointer'
                     onClick={() => handleProjectClick(project._id)}
                 >
-                    <div className='relative md:h-[400px] h-[300px] w-full rounded-lg'>
+                    <div className='relative md:h-[500px] h-[300px] w-full rounded-lg'>
                         <Image
                             src={project.thumbnailAfter}
                             alt={project.name}
@@ -56,7 +56,7 @@ const ProjectSection: React.FC = () => {
                             fill
                         />
                     </div>
-                    <h4 className='uppercase mt-4 font-semibold'>{project.name}</h4>
+                    <h4 className='uppercase mt-4 font-semibold text-white'>{project.name}</h4>
                     <div className='grid md:flex md:justify-start mt-4 md:space-x-44 space-x-0 md:space-y-0 space-y-3 uppercase text-xs md:flex-row flex-col'>
                         <div className='md:col-span-1'>
                             <p className='text-[#9E9E9E]'>Client</p>

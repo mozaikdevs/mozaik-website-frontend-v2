@@ -77,7 +77,7 @@ const CustomFooter: React.FC = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 placeholder='Enter your full name' 
-                                className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 md:mb-0 mb-3'
+                                className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 md:mb-0 mb-3 outfit'
                             />
                             <input 
                                 type="email" 
@@ -85,7 +85,7 @@ const CustomFooter: React.FC = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder='Enter your Email' 
-                                className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3'
+                                className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 outfit'
                             />
                         </div>
                         <textarea 
@@ -94,7 +94,7 @@ const CustomFooter: React.FC = () => {
                             onChange={handleChange}
                             placeholder='Enter your message'
                             rows={4}
-                            className='w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 mt-3'
+                            className='w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 mt-3 outfit'
                         >
                         </textarea>
                         <button 
