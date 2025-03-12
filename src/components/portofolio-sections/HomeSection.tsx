@@ -4,7 +4,7 @@ const HomeSection: React.FC = () => {
     return (
         <div className="relative flex justify-center items-center min-h-[calc(100vh-80px)] w-full bg-gradient-to-b from-black to-[#2c210d] my-auto">
             <div className='w-full'>
-                <h1 className='w-full text-center md:text-9xl text-6xl redex text-white font-black uppercase'>mozaik <span className='font-[200]'>concept</span></h1>
+                <h1 className='w-full text-center md:text-9xl text-6xl redex text-white font-black uppercase'>mozaik <span className='font-[200]'>concepts</span></h1>
                 <div className='w-2/3 mx-auto flex justify-between items-center mt-14 md:flex-row flex-col space-y-4'>
                     <div className='md:w-[25%] w-full flex items-center'>
                         <div className='bg-[#FFBF4B] w-[10px] md:h-[58px] h-[45px] rounded-[8px]'></div>

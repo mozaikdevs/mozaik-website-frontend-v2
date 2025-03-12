@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
                         </div>
                         <div className='text-sm'>
                             <p className="font-bold">Address</p>
-                            <p>3 KG 686 st, Kigali</p>
+                            <a href="https://www.google.com/maps/place/3+KG+686+St,+Kigali" target="_blank" className="text-white">3 KG 686 st, Kigali</a>
                         </div>
                     </div>
                     <div className="flex items-center my-10">
@@ -84,14 +84,14 @@ const Contact: React.FC = () => {
                             <div className='w-5 h-5 relative'>
                                     <Image 
                                         src="/icons/mail2.svg" 
-                                        alt="Location" 
+                                        alt="Email" 
                                         fill
                                     />
                             </div>
                         </div>
                         <div className='text-sm'>
                             <p className="font-bold">Email</p>
-                            <p>info@mozaikconcepts.com</p>
+                            <a href="mailto:info@mozaikconcepts.com" className="text-white">info@mozaikconcepts.com</a>
                         </div>
                     </div>
                     <div className="flex items-center ">
@@ -99,14 +99,14 @@ const Contact: React.FC = () => {
                             <div className='w-5 h-5 relative'>
                                 <Image 
                                     src="/icons/phone2.svg" 
-                                    alt="Location" 
+                                    alt="Phone" 
                                     fill
                                 />
                             </div>
                         </div>
                         <div className='text-sm'>
                             <p className="font-bold">Phone</p>
-                            <p>+250 791 903 218</p>
+                            <a href="tel:+250791903218" className="text-white">+250 791 903 218</a>
                         </div>
                     </div>
                 </div>

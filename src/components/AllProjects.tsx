@@ -109,11 +109,11 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects, loading }) => {
             projectsToShow.map((project, index) => (
                 <div 
                     key={index} 
-                    className="w-full flex space-between items-center mb-20 cursor-pointer bg-[#FBFBFB] rounded-xl p-5 md:flex-row flex-col"
+                    className="w-full flex space-between items-center mb-20 bg-[#FBFBFB] rounded-xl p-5 md:flex-row flex-col"
                 >
                     <div className="md:w-[45%] w-full md:h-[300px] h-[230px] relative rounded-xl md:mb-0 mb-10">
                         <Image 
-                            src='https://res.cloudinary.com/mozaikconcepts/image/upload/v1737702224/thg4isdant9qbnyhixbi.png'
+                            src={project.thumbnailAfter}
                             alt={project.name} 
                             fill
                             className='rounded-xl'
@@ -128,7 +128,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects, loading }) => {
                         <div className="text-white mt-3 mb-5">
                             <p className='text-black text-sm font-[300]'> <span className='text-[#9E9E9E] mr-2'>Client</span>{project.clientId.name}</p>
                         </div>
-                        <p className='text-[#474646] text-sm'>{truncateDetails(project.description,400)}</p>
+                        <p className='text-[#474646] text-sm text-justify'>{truncateDetails(project.description,400)}</p>
                         <button 
                             className="flex items-center justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[500] py-3 px-5 rounded-[8px] mt-5"
                             onClick={() => handleProjectClick(project._id)}

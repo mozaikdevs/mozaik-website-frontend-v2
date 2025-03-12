@@ -56,14 +56,14 @@ const CustomFooter: React.FC = () => {
                     <h1 className='w-2/3 md:text-5xl text-3xl redex font-bold'>WHAT <span className='font-normal'>WE DO</span> FOR YOU</h1>
                     <div className='md:w-2/3 w-full flex justify-between redex my-8'>
                         <div className='w-[40%] flex flex-col text-sm'>
-                            <Link href='/services' className='my-1'>Consultancy</Link>
-                            <Link href='/services' className='my-1'>Design</Link>
-                            <Link href='/services' className='my-1'>Finishing and Partitioninng works</Link>
+                            <Link href='/services/#design' className='my-1'>Consultancy</Link>
+                            <Link href='/services/#design' className='my-1'>Design</Link>
+                            <Link href='/services/#finishing' className='my-1'>Finishing and Partitioninng works</Link>
                         </div>
                         <div className='md:[40%] flex flex-col text-sm'>
-                            <Link href='/services' className='my-1'>Furniture</Link>
-                            <Link href='/services' className='my-1'>Decoration</Link>
-                            <Link href='/services' className='my-1'>Products Design</Link>
+                            <Link href='/services/#furniture' className='my-1'>Furniture</Link>
+                            <Link href='/services/#furniture' className='my-1'>Decoration</Link>
+                            <Link href='/services/#design' className='my-1'>Products Design</Link>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ const CustomFooter: React.FC = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 placeholder='Enter your full name' 
-                                className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 md:mb-0 mb-3'
+                                className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 md:mb-0 mb-3 outfit'
                             />
                             <input 
                                 type="email" 
@@ -85,7 +85,7 @@ const CustomFooter: React.FC = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder='Enter your Email' 
-                                className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3'
+                                className='md:w-[45%] w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 outfit'
                             />
                         </div>
                         <textarea 
@@ -94,7 +94,7 @@ const CustomFooter: React.FC = () => {
                             onChange={handleChange}
                             placeholder='Enter your message'
                             rows={4}
-                            className='w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 mt-3'
+                            className='w-full bg-[#1D1D1D] text-sm text-[#AEABAB] p-3 mt-3 outfit'
                         >
                         </textarea>
                         <button 
@@ -109,9 +109,9 @@ const CustomFooter: React.FC = () => {
             </div>
             <div className="container mx-auto text-center mt-20">
                 <div className='flex justify-center items-center uppercase redex text-base'>
-                    <Link href="#" target='_blank'>INSTAGRAM</Link>
-                    <Link href="#" target='_blank' className='mx-6'>LINKEDIN</Link>
-                    <Link href="#" target='_blank'>twitter</Link>
+                    <Link href="https://www.instagram.com/mozaikconcepts?igsh=NnNjMWFubzQ3enJj" target='_blank'>INSTAGRAM</Link>
+                    <Link href="https://www.linkedin.com/in/mozaik-concepts-ltd-83233b233" target='_blank' className='mx-6'>LINKEDIN</Link>
+                    <Link href="https://www.facebook.com/share/12EyZfR9gSe/?mibextid=wwXIfr" target='_blank'>FACEBOOK</Link>
                 </div>
                 <p className="md:w-[20%] w-1/2 mx-auto text-sm text-[#8F8F8F] redex font-[300] mt-5">&copy; {new Date().getFullYear()} All rights reserved by Mozaik concepts</p>
             </div>

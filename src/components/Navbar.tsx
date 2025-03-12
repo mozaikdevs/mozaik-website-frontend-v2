@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
                 <Link href="/services" className={`hover:text-[#E09F1F] font-[500] ${isActive('/services')}`}>Services</Link>
                 <Link href="/about" className={`hover:text-[#E09F1F] font-[500] ${isActive('/about')}`}>About</Link>
                 <Link href="/projects" className={`hover:text-[#E09F1F] font-[500] ${isActive('/projects')}`}>Projects</Link>
-                <Link href="/portofolio" className={`hover:text-[#E09F1F] font-[500] ${isActive('/portofolio')}`}>Portofolio</Link>
+                <Link href="/portofolio" className={`hover:text-[#E09F1F] font-[500] ${isActive('/portofolio')}`}>Portfolio</Link>
             </div>
             <div className="hidden md:flex">
                 <Link href="/#contact" className="flex justify-between bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-3 px-5 rounded-[8px]">
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
                         <Link href="/services" className="hover:text-gray-400 font-[500]">Services</Link>
                         <Link href="/about" className="hover:text-gray-400 font-[500]">About</Link>
                         <Link href="/projects" className="hover:text-gray-400 font-[500]">Projects</Link>
-                        <Link href="/portofolio" className="hover:text-gray-400 font-[500]">Portofolio</Link>
+                        <Link href="/portofolio" className="hover:text-gray-400 font-[500]">Portfolio</Link>
                         <Link href="/#contact" className="w-2/3 flex justify-center bg-[#E09F1F] hover:bg-[#ae7c18] text-white font-[600] py-3 px-5 rounded-[8px] mt-10 mx-auto">
                             Get in Touchh
                             <MdKeyboardArrowRight className='text-2xl ml-2' />
