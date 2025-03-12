@@ -67,7 +67,7 @@ const Services: React.FC = () => {
                     <div className='md:w-1/2 w-full flex justify-between'>
                         <div className="w-[45%] md:h-[400px] h-[300px] rounded-xl relative">
                             <Image
-                                src="/images/11.png" 
+                                src="/images/12.png" 
                                 alt="Description" 
                                 className="rounded-xl" 
                                 fill
@@ -75,9 +75,9 @@ const Services: React.FC = () => {
                         </div>
                         <div className="w-[45%] md:h-[400px] h-[300px] rounded-xl relative md:ml-4 ml-0">
                             <Image 
-                                src="/images/13.png" 
+                                src="/images/18.jpg" 
                                 alt="Description" 
-                                className="rounded-xl" 
+                                className="rounded-xl object-cover" 
                                 fill
                             />
                         </div>
@@ -97,17 +97,17 @@ const Services: React.FC = () => {
                     <div className='md:w-1/2 w-full flex justify-between'>
                         <div className="w-[45%] md:h-[400px] h-[300px] rounded-xl relative">
                             <Image
-                                src="/images/14.png" 
+                                src="/images/19.jpg" 
                                 alt="Description" 
-                                className="rounded-xl" 
+                                className="rounded-xl object-cover" 
                                 fill
                             />
                         </div>
                         <div className="w-[45%] md:h-[400px] h-[300px] rounded-xl relative md:ml-4 ml-0">
                             <Image 
-                                src="/images/15.png" 
+                                src="/images/20.jpg" 
                                 alt="Description" 
-                                className="rounded-xl" 
+                                className="rounded-xl object-cover" 
                                 fill
                             />
                         </div>
