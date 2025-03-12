@@ -31,7 +31,7 @@ const Partners: React.FC = () => {
     const displayedClients = clients.slice(currentIndex, currentIndex + 10);
 
     return (
-        <section className="flex flex-col space-y-8 bg-[#FAFAFA] md:py-20 py-5 md:px-16 px-5">
+        <section className="flex flex-col space-y-8 bg-[#FAFAFA] md:py-20 py-5 md:px-[77px] px-5">
             <div className="w-full flex md:flex-row flex-col md:justify-between justify-center md:items-center items-center">
                 <div>
                     <div className='flex md:justify-start justify-center text-center items-center md:mb-10 mb-3'>

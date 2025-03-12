@@ -52,17 +52,17 @@ const Contact: React.FC = () => {
         }));
     };
     return (
-        <section className="flex md:flex-row flex-col-reverse justify-between md:px-32 md:py-32 px-5 py-10 2xl:px-96">
+        <section className="flex md:flex-row flex-col-reverse md:px-[77px] md:py-32 px-5 py-10 2xl:px-96">
             <ToastContainer />
             {/* First Element */}
-            <div className="relative md:w-2/5 w-full bg-[#143755] md:mt-0 mt-16 bg-cover bg-center rounded-2xl p-10 text-white z-10" style={{ backgroundImage: "url('/images/bg-5.png')", backgroundSize: '250%', backgroundPosition: 'center' }}>
+            <div className="relative md:w-2/5 w-full bg-[#143755] md:mt-0 mt-16 bg-cover bg-center rounded-2xl p-10 text-white z-10 md:mr-20" style={{ backgroundImage: "url('/images/bg-5.png')", backgroundSize: '250%', backgroundPosition: 'center' }}>
                 <div className='flex justify-start items-center'>
                     <div className='h-4 w-2 bg-[#E09F1F] mr-2'></div>
                     <h2 className="text-sm font-bold text-center uppercase text-[#E09F1F]">Reach out to us</h2>
                     <div className='h-4 w-2 bg-[#E09F1F] ml-2'></div>
                 </div>
                 <p className="md:w-1/2 w-3/4 md:text-2xl text-xl mb-2 capitalize font-bold my-5">We'd love to hear from you!</p>
-                <p className="md:w-2/3 w-full text-sm mb-8">Feel free to reach out to us with any questions or concerns.</p>
+                <p className="md:w-2/3 w-full text-sm mb-8">Feel free to r`each out to us with any questions or concerns.</p>
                 <div className="space-y-8">
                     <div className="flex items-center">
                         <div className="w-14 h-11 bg-[#183E5E] rounded-[8px] flex items-center justify-center mr-5">

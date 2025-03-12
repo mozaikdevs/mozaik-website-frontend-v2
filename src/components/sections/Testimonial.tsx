@@ -41,7 +41,7 @@ const Testimonial: React.FC = () => {
     };
 
   return (
-    <div className='flex w-full h-full justify-between items-center md:py-20 py-10 bg-[#FAFAFA]'>
+    <div className='flex w-full h-full justify-between items-center md:py-20 py-10 bg-[#FAFAFA] md:px-[77px] px-5'>
         <div className="relative w-full h-full overflow-hidden">
           {/* <div className="w-[95%] px-[5%] relative overflow-hidden rounded-lg mb-14"> */}
             <div className='md:mb-28 mb-16'>
@@ -53,7 +53,7 @@ const Testimonial: React.FC = () => {
               <p className="md:text-3xl text-xl text-black text-center md:mb-16 mb-5 md:px-[20%] font-[300] uppercase ">Our clients’ <span className='font-[700]'>stories</span>  show how we bring <span className='font-[700]'>their visions </span>to life with custom <span className='font-[700]'>design solutions</span></p>
             </div>
           {/* </div> */}
-          <div className='w-[80%] mx-auto'>
+          <div className='w-full mx-auto'>
             <Swiper
               modules={[Autoplay, Pagination]}
               spaceBetween={50}

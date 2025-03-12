@@ -4,7 +4,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const WhyChooseUs: React.FC = () => {
     return (
-        <div className="w-full bg-cover bg-center md:p-20 p-5 md:my-20 my-10" style={{ backgroundImage: 'url(/images/6.png)'}}>
+        <div className="w-full bg-cover bg-center md:py-20 py-5 md:px-[77px] px-5 md:my-20 my-10" style={{ backgroundImage: 'url(/images/6.png)'}}>
             <div className="flex flex-col items-center bg-black bg-opacity-70 md:px-56 px-5 md:py-20 py-10 rounded-[24px] 2xl:px-96">
                 <div className='flex justify-center text-center items-center mb-10'>
                     <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
