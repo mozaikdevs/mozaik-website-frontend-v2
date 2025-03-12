@@ -88,7 +88,7 @@ const Magazine: React.FC = () => {
                             <div className='flex text-sm text-[#B8B8B8]'>
                                 <p className="text-gray-500 mr-2">Latest Blogs</p>
                                 <p className="text-gray-500">
-                                    {formatDate(blog.dateOfPublish)}
+                                    {formatDate(blog.createdAt)}
                                 </p>
                             </div>
                             <h3 className="md:text-xl text-lg font-semibold mb-4 uppercase text-white">{blog.title}</h3>

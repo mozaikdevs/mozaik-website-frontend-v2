@@ -8,7 +8,7 @@ const Services: React.FC = () => {
     return (
         <DefaultLayout>
             <div className='min-h-screen bg-white md:px-16 px-5'>
-                <section id='design' className="flex justify-between items-end bg-[#FAFAFA] rounded-xl p-12 md:flex-row flex-col">
+                <section className="flex justify-between items-end bg-[#FAFAFA] rounded-xl p-12 md:flex-row flex-col">
                     <div>
                         <div className='flex justify-start items-center mb-10'>
                             <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
@@ -23,7 +23,7 @@ const Services: React.FC = () => {
                         </p>
                     </div>
                 </section>
-                <section id='finishing' className="flex justify-between items-center md:p-12 p-0 md:mx-16 mx-0 my-20 md:flex-row flex-col">
+                <section id='design' className="flex justify-between items-center md:p-12 p-0 md:mx-16 mx-0 my-20 md:flex-row flex-col">
                     <div className='md:w-1/2 w-full flex justify-between md:mb-0 mb-20'>
                         <div className="w-[45%] md:h-[400px] h-[300px] rounded-xl relative">
                             <Image
@@ -63,7 +63,7 @@ const Services: React.FC = () => {
                         </Link>
                     </div>
                 </section>
-                <section id="furniture" className="flex md:flex-row-reverse flex-col justify-between items-center md:p-12 p-0 md:mx-16 mx-0 my-20">
+                <section id="finishing" className="flex md:flex-row-reverse flex-col justify-between items-center md:p-12 p-0 md:mx-16 mx-0 my-20">
                     <div className='md:w-1/2 w-full flex justify-between'>
                         <div className="w-[45%] md:h-[400px] h-[300px] rounded-xl relative">
                             <Image
@@ -93,11 +93,11 @@ const Services: React.FC = () => {
                         </Link>
                     </div>
                 </section>
-                <section className="flex justify-between items-center md:p-12 p-0 md:mx-16 mx-0 md:py-20 py-0 md:flex-row flex-col">
+                <section id="furniture" className="flex justify-between items-center md:p-12 p-0 md:mx-16 mx-0 md:py-20 py-0 md:flex-row flex-col">
                     <div className='md:w-1/2 w-full flex justify-between'>
                         <div className="w-[45%] md:h-[400px] h-[300px] rounded-xl relative">
                             <Image
-                                src="/images/19.jpg" 
+                                src="/images/19.JPG" 
                                 alt="Description" 
                                 className="rounded-xl object-cover" 
                                 fill
@@ -105,7 +105,7 @@ const Services: React.FC = () => {
                         </div>
                         <div className="w-[45%] md:h-[400px] h-[300px] rounded-xl relative md:ml-4 ml-0">
                             <Image 
-                                src="/images/20.jpg" 
+                                src="/images/20.JPG" 
                                 alt="Description" 
                                 className="rounded-xl object-cover" 
                                 fill

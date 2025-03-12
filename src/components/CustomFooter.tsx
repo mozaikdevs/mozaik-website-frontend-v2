@@ -56,14 +56,14 @@ const CustomFooter: React.FC = () => {
                     <h1 className='w-2/3 md:text-5xl text-3xl redex font-bold'>WHAT <span className='font-normal'>WE DO</span> FOR YOU</h1>
                     <div className='md:w-2/3 w-full flex justify-between redex my-8'>
                         <div className='w-[40%] flex flex-col text-sm'>
-                            <Link href='/services' className='my-1'>Consultancy</Link>
-                            <Link href='/services' className='my-1'>Design</Link>
-                            <Link href='/services' className='my-1'>Finishing and Partitioninng works</Link>
+                            <Link href='/services/#design' className='my-1'>Consultancy</Link>
+                            <Link href='/services/#design' className='my-1'>Design</Link>
+                            <Link href='/services/#finishing' className='my-1'>Finishing and Partitioninng works</Link>
                         </div>
                         <div className='md:[40%] flex flex-col text-sm'>
-                            <Link href='/services' className='my-1'>Furniture</Link>
-                            <Link href='/services' className='my-1'>Decoration</Link>
-                            <Link href='/services' className='my-1'>Products Design</Link>
+                            <Link href='/services/#furniture' className='my-1'>Furniture</Link>
+                            <Link href='/services/#furniture' className='my-1'>Decoration</Link>
+                            <Link href='/services/#design' className='my-1'>Products Design</Link>
                         </div>
                     </div>
                 </div>
