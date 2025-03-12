@@ -13,7 +13,7 @@ const CustomFooter: React.FC = () => {
         name: '',
         email: '',
         message: '',
-        topic: 'Portofolio',
+        topic: 'Portfolio',
     };
     const [formData, setFormData] = useState(initialState);
 
@@ -100,7 +100,7 @@ const CustomFooter: React.FC = () => {
                         <button 
                             type='submit'
                             disabled={loading}
-                            className='w-full text-sm bg-white text-black uppercase font-[300] crisis py-3 mt-3 disabled:opacity-50'
+                            className='w-full redex text-sm bg-white text-black uppercase font-black py-3 mt-3 disabled:opacity-50'
                         >
                             {loading ? 'Sending...' : 'Send Message'}
                         </button>

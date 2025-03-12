@@ -22,7 +22,7 @@ const ProjectSection: React.FC = () => {
         const params = new URLSearchParams({
             id: projectId
         });
-        router.push(`/portofolio/project-details?${params.toString()}`);
+        router.push(`/portfolio/project-details?${params.toString()}`);
     };
 
     const loadMore = () => {
