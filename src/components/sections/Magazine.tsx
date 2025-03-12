@@ -26,7 +26,7 @@ const Magazine: React.FC = () => {
     }, [dispatch]);
 
     return (
-        <section className="py-20 md:px-16 px-5 bg-[#143755]" style={{ backgroundImage: "url('/images/bg-5.png')",backgroundSize:"100%", backgroundPosition: '50%' }}>
+        <section className="py-20 md:px-[77px] px-5 bg-[#143755]" style={{ backgroundImage: "url('/images/bg-5.png')",backgroundSize:"100%", backgroundPosition: '50%' }}>
             <div className="flex md:flex-row flex-col md:justify-between justify-center items-start">
                 <div>
                     <div className='flex md:justify-start justify-center items-center mb-5'>

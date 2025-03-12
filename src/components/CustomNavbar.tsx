@@ -12,7 +12,7 @@ const CustomNavbar: React.FC = () => {
 
     return (
         <nav className="z-50 w-full flex items-center justify-between p-4 bg-[#161515] outfit px-5 md:px-16">
-            <Link href="/portofolio" className="logo relative w-[130px] h-[35px] md:w-[150px] md:h-[40px]">
+            <Link href="/portfolio" className="logo relative w-[130px] h-[35px] md:w-[150px] md:h-[40px]">
                 <Image
                     src="/images/dark-logo.png"
                     alt="Mozaik concepts Logo"

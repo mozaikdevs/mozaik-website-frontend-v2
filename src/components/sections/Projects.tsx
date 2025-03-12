@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
 
     return (
         <section className="">
-            <div className="container mx-auto px-4 2xl:max-w-[1800px]">
+            <div className="md:px-[77px] px-4">
                 <div className='flex justify-center items-center mb-10'>
                     <div className='h-4 w-3 bg-[#E09F1F] mr-2'></div>
                     <h2 className="text-md font-bold text-center uppercase text-black">Our Projects</h2>
@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
                     <SkeletonProjectCard key={index} />
                 ))
                 ) : (
-                    <div className="md:w-[90%] w-full mx-auto grid grid-cols-1 md:grid-cols-7 gap-8 mt-24">
+                    <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-7 gap-8 mt-24">
                         {projects.map((project:Project, index:number) => (
                             <div 
                                 key={project._id}

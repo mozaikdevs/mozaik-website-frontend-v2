@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
                         <div>
                             <Link href="/projects" className="block font-[200] text-[14px] mb-3">Projects</Link>
                             <Link href="/#blogs" className="block font-[200] text-[14px] mb-3">Blog</Link>
-                            <Link href="/portofolio" className="block font-[200] text-[14px] mb-3">Portofolio</Link>
+                            <Link href="/portfolio" className="block font-[200] text-[14px] mb-3">Portofolio</Link>
                         </div>
                     </div>
                 </div>
