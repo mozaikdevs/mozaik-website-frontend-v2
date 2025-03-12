@@ -61,7 +61,7 @@ const About: React.FC = () => {
                 <section className="w-full bg-[#FAFAFA] rounded-xl py-28 md:px-56 px-5 mt-12 flex items-center md:flex-row flex-col-reverse">
                     <div className="md:w-1/2 w-full h-[300px] rounded-xl relative md:mt-0 mt-10">
                         <Image 
-                            src="/images/8.png" 
+                            src="/images/26.jpg" 
                             alt="Description" 
                             className="rounded-xl" 
                             fill
@@ -80,7 +80,7 @@ const About: React.FC = () => {
                 <section className="w-full rounded-xl py-28 md:px-56 px-5 flex md:flex-row-reverse flex-col-reverse items-center">
                     <div className="md:w-1/2 w-full h-[300px] md:mt-0 mt-10 rounded-xl relative">
                         <Image 
-                            src="/images/9.png" 
+                            src="/images/17.jpg" 
                             alt="Description" 
                             className="rounded-xl" 
                             fill

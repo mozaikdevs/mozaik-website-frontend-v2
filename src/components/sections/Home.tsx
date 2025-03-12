@@ -9,7 +9,7 @@ const Home: FC = () => {
             <section
                 className="relative bg-cover bg-center rounded-[24px]"
                 style={{
-                    backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('/images/1.jpg')",
+                    backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('/images/home.jpg')",
                     height: "calc(100vh - 90px)"
                 }}
             >
